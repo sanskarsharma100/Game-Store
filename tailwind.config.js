@@ -4,15 +4,17 @@ export default {
   theme: {
     extend: {
       dropShadow: {
-        "3xl": "0 35px 35px rgba(0, 0, 0, 0.25)",
+        "3xl": "0 0 10px hsl(0, 0%, 60%)",
         "4xl": [
-          "0 35px 35px rgba(0, 0, 0, 0.25)",
-          "0 45px 65px rgba(0, 0, 0, 0.15)",
+          "0 0 5px rgb(255, 0, 0)",
+          "0 0 5px rgb(255, 0, 0)",
+          "0 0 5px rgb(255, 0, 0)",
         ],
       },
       colors: {
         darkBg: "#121212",
         darkBg2: "#1e1e1e",
+        cardHover: "hsl(0, 0%, 20%)",
         lightText: "#ffffffde",
         darkHover: "#BB86FC",
         borderColor: "#3c4144",
