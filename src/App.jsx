@@ -22,7 +22,7 @@ function App() {
   }
 
   return (
-    <>
+    <main>
       <Navbar />
       <Routes>
         <Route path="/" element={<Intro />} />
@@ -35,7 +35,7 @@ function App() {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
-    </>
+    </main>
   );
 }
 

@@ -3,7 +3,7 @@ const genres = {
   openWorld: 'Open World',
   action: 'Action',
   multiplayer: 'Multiplayer',
-  racing: 'racing',
+  racing: 'Racing',
   adventure: 'Adventure',
   singleplayer: 'Singleplayer',
   rpg: 'RPG',
