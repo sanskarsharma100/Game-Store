@@ -7,7 +7,7 @@ import genres from "../Utils/genres";
 import { MainContext } from "../Context/MainContext";
 
 function Navbar() {
-  const {isMenuOpen, toggleMenu} = useContext(MainContext);
+  const { isMenuOpen, toggleMenu } = useContext(MainContext);
 
   const links = [
     { to: "store", name: "Home", id: "l1" },
@@ -59,7 +59,7 @@ function Navbar() {
       x: 0,
       opacity: 1,
       transition: {
-        y: { stiffness: 100, velocity: -100},
+        y: { stiffness: 100, velocity: -100 },
       },
     },
     closed: {
@@ -108,9 +108,9 @@ function Navbar() {
   return (
     <nav className="w-full fixed z-50">
       <div className="xs:flex w-full relative bg-darkBg">
-        <div className="flex justify-center bg-darkBg relative z-50 h-16">
+        <div className="flex justify-center bg-darkBg relative z-[9999] h-16">
           <div className="m-auto">
-            <p className="font-roboto text-2xl font-extrabold text-lightText w-fit m-auto p-1 border">
+            <p className="font-heading text-2xl font-extrabold text-lightText w-fit m-auto p-1 border">
               GameStore
             </p>
           </div>
@@ -125,23 +125,23 @@ function Navbar() {
           initial={{ x: "100%" }}
           animate={isMenuOpen ? "open" : "closed"}
           variants={menuSlider}
-          className="bg-darkBg flex flex-col gap-10 absolute z-40 min-h-screen w-2/3 backdrop-blur"
+          className="bg-darkBg flex flex-col gap-5 absolute z-[5000] h-[93vh] w-2/3 backdrop-blur overflow-y-scroll pb-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
         >
           <motion.ul
             animate={isMenuOpen ? "open" : "closed"}
             variants={ULlist}
-            className="text-lightText font-bold xs:flex xs:align-middle text-lg overflow-hidden"
+            className="text-lightText font-bold xs:flex xs:align-middle text-lg font-text"
           >
             {navLinks}
           </motion.ul>
           <div>
-            <h2 className="text-2xl text-lightText font-extrabold underline font-roboto text-center mb-2">
+            <h2 className="text-2xl text-lightText font-extrabold underline font-heading text-center mb-2">
               Categories
             </h2>
             <motion.ul
               animate={isMenuOpen ? "open" : "closed"}
               variants={ULlist}
-              className="text-lightText font-bold xs:flex xs:align-middle text-lg overflow-hidden"
+              className="text-lightText font-bold xs:flex xs:align-middle text-lg overflow-hidden font-text"
             >
               {categories}
             </motion.ul>

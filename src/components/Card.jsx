@@ -32,7 +32,7 @@ function Card({ game, toggleFavourite }) {
         boxShadow: "0 0 20px hsl(0, 0%, 30%)",
       }}
       whileTap={{ scale: 1.012 }}
-      className="bg-darkBg2 m-2 rounded-lg relative active:scale-150"
+      className="bg-darkBg2 rounded-lg relative active:scale-150"
     >
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ function Card({ game, toggleFavourite }) {
         </g>
       </motion.svg>
       <img src={game.preview[0]} alt="preview" className="rounded-t-lg" />
-      <div className="text-lightText p-2">
+      <div className="text-lightText">
         <p>{game.name}</p>
       </div>
     </motion.div>

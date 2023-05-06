@@ -23,8 +23,8 @@ export default {
       },
     },
     fontFamily: {
-      roboto: ["Roboto", "sans-serif"],
-      ubuntu: ["Ubuntu", "sans-serif"],
+      heading: ["Roboto", "sans-serif"],
+      text: ["Ubuntu", "sans-serif"],
     },
     screens: {
       xs: "480px",

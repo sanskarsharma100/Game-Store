@@ -11,8 +11,9 @@ function Home({ gamesList, toggleFavourite }) {
   
 
   return (
-    <div className="w-full bg-darkBg min-h-screen pt-20 relative">
-      <div className="mx-2 grid xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 items-center place-items-center">
+    <div className="w-full bg-darkBg min-h-screen pt-20 relative p-4">
+      <h1 className="text-lightText font-heading">All Games</h1>
+      <div className="grid gap-4 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 items-center place-items-center overflow-visible font-text">
         {gamesCards}
       </div>
     </div>
