@@ -6,9 +6,12 @@ import Home from "./components/Home";
 import Wishlist from "./components/Wishlist";
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
+import { useContext } from "react";
+import { MainContext } from "./Context/MainContext";
 
 function App() {
   const [gamesList, setGamesList] = useState(games);
+  const { isMenuOpen, toggleMenu } = useContext(MainContext);
 
   function toggleFavourite(e) {
     console.log("e.target", e.target.id);
@@ -24,6 +27,7 @@ function App() {
   return (
     <main>
       <Navbar />
+      <div className={`${!isMenuOpen && `hidden`} w-screen h-screen absolute z-30 bg-semiTransparantDark`} onClick={toggleMenu}></div>
       <Routes>
         <Route path="/" element={<Intro />} />
         <Route

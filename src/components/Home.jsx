@@ -1,12 +1,14 @@
 import { motion, animate, useCycle } from "framer-motion";
 import PropTypes from "prop-types";
-import Card from './Card';
+import Card from "./Card";
 
 function Home({ gamesList, toggleFavourite }) {
 
   const gamesCards = gamesList.map((game) => (
     <Card key={game.id} game={game} toggleFavourite={toggleFavourite} />
   ));
+
+  
 
   return (
     <div className="w-full bg-darkBg min-h-screen pt-20 relative">

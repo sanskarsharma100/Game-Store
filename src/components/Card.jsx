@@ -1,17 +1,37 @@
 import { motion, animate, useCycle } from "framer-motion";
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import { MainContext } from "../Context/MainContext";
 
 function Card({ game, toggleFavourite }) {
+  const { isMenuOpen } = useContext(MainContext);
+
+  const homeEffects = {
+    menuOpened: {
+      scale: 0.9,
+      transition: {
+        type: "tween",
+      }
+    },
+    menuClosed: {
+      scale: 1,
+      transition: {
+        type: "tween",
+      }},
+  };
+
   return (
     <motion.div
       key={game.id}
+      animate={isMenuOpen ? "menuOpened" : "menuClosed"}
+      variants={homeEffects}
       whileHover={{
         scale: 1.02,
         cursor: "pointer",
         backgroundColor: "hsl(0, 0%, 10%)",
         boxShadow: "0 0 20px hsl(0, 0%, 30%)",
       }}
-      whileTap={{scale: 1.012}}
+      whileTap={{ scale: 1.012 }}
       className="bg-darkBg2 m-2 rounded-lg relative active:scale-150"
     >
       <motion.svg
