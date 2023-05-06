@@ -6,7 +6,7 @@ import { MainContext } from "../Context/MainContext";
 function Card({ game, toggleFavourite }) {
   const { isMenuOpen } = useContext(MainContext);
 
-  const homeEffects = {
+  const homeEffect = {
     menuOpened: {
       scale: 0.9,
       transition: {
@@ -24,7 +24,7 @@ function Card({ game, toggleFavourite }) {
     <motion.div
       key={game.id}
       animate={isMenuOpen ? "menuOpened" : "menuClosed"}
-      variants={homeEffects}
+      variants={homeEffect}
       whileHover={{
         scale: 1.02,
         cursor: "pointer",

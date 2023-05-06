@@ -9,8 +9,6 @@ import { MainContext } from "../Context/MainContext";
 function Navbar() {
   const {isMenuOpen, toggleMenu} = useContext(MainContext);
 
-  console.log('isMenuOpen',isMenuOpen);
-
   const links = [
     { to: "store", name: "Home", id: "l1" },
     { to: "wishlist", name: "Wishlist", id: "l2" },
@@ -127,7 +125,7 @@ function Navbar() {
           initial={{ x: "100%" }}
           animate={isMenuOpen ? "open" : "closed"}
           variants={menuSlider}
-          className="bg-darkBg flex flex-col gap-10 xs:justify-center absolute z-40 min-h-screen w-2/3 backdrop-blur"
+          className="bg-darkBg flex flex-col gap-10 absolute z-40 min-h-screen w-2/3 backdrop-blur"
         >
           <motion.ul
             animate={isMenuOpen ? "open" : "closed"}
