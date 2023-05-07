@@ -102,7 +102,7 @@ function Menubar({ links }) {
 
   return (
     <motion.div
-      initial={{ x: "96%" }}
+      initial={{ x: "96%", display:"none" }}
       animate={isMenuOpen ? "open" : "closed"}
       variants={menuSlider}
       className="bg-darkBg flex flex-col gap-5 absolute z-[5000] h-[93vh] w-2/3 backdrop-blur overflow-y-scroll pb-3 scrollbar-hidden"

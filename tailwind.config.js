@@ -20,6 +20,10 @@ export default {
         borderColor: "#3c4144",
         borderColorActive: "#788287",
         semiTransparantDark: "rgba(0, 0, 0, 0.8)",
+        success: '#4CAF50',
+        best: '#2E7D32',
+        bad: '#FF9800',
+        worst: '#C62828',
       },
     },
     fontFamily: {

@@ -7,11 +7,9 @@ import { useContext } from "react";
 function Home({ gamesList, toggleFavourite }) {
   const { selectedGenre } = useContext(MainContext);
   const filteredGames =
-    selectedGenre != ''
+    selectedGenre != ""
       ? gamesList.filter((game) => game.genre.includes(selectedGenre))
       : gamesList;
-
-  console.log("filteredGames", filteredGames);
 
   const gamesCards = filteredGames.map((game) => (
     <Card key={game.id} game={game} toggleFavourite={toggleFavourite} />

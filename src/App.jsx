@@ -14,7 +14,6 @@ function App() {
   const { isMenuOpen, toggleMenu } = useContext(MainContext);
 
   function toggleFavourite(e) {
-    console.log("e.target", e.target.id);
     setGamesList((prevList) =>
       prevList.map((game) => ({
         ...game,

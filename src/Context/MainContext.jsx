@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 const MainContext = React.createContext();
 
 function MainContextProvider(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [cart, setCart] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
 
   function setGenre(category) {
@@ -18,9 +19,26 @@ function MainContextProvider(props) {
     setIsMenuOpen(!isMenuOpen);
   }
 
+  function addToCart(id) {
+    const index = cart.indexOf(id);
+    if (index == -1) {
+      setCart((prevCart) => [...prevCart, id]);
+    } else {
+      setCart((prevCart) => prevCart.filter(item => item !== id)
+      );
+    }
+  }
+
   return (
     <MainContext.Provider
-      value={{ isMenuOpen, toggleMenu, selectedGenre, setGenre }}
+      value={{
+        isMenuOpen,
+        toggleMenu,
+        selectedGenre,
+        setGenre,
+        cart,
+        addToCart,
+      }}
     >
       {props.children}
     </MainContext.Provider>
