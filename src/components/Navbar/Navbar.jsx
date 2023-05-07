@@ -2,11 +2,10 @@ import { useContext } from "react";
 import { ReactComponent as HamBtn } from "../../assets/ham.svg";
 import { ReactComponent as CrossBtn } from "../../assets/cross.svg";
 import { MainContext } from "../../Context/MainContext";
-import Menubar from './Menubar';
+import Menubar from "./Menubar";
 
 function Navbar() {
-  const { isMenuOpen, toggleMenu } =
-    useContext(MainContext);
+  const { isMenuOpen, toggleMenu } = useContext(MainContext);
 
   const links = [
     { to: "store", name: "Home", id: "l1" },
@@ -30,7 +29,7 @@ function Navbar() {
             {isMenuOpen ? <CrossBtn /> : <HamBtn />}
           </div>
         </div>
-        <Menubar links={links}/>
+        <Menubar links={links} />
       </div>
     </nav>
   );

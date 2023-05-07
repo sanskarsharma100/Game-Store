@@ -7,8 +7,7 @@ import { MainContext } from "../../Context/MainContext";
 import genres from "./../../Utils/genres";
 
 function Menubar({ links }) {
-  const { isMenuOpen, selectedGenre, setCategory } =
-    useContext(MainContext);
+  const { isMenuOpen, selectedGenre, setGenre } = useContext(MainContext);
 
   const menuSlider = {
     open: {
@@ -86,17 +85,16 @@ function Menubar({ links }) {
   const categories = Object.keys(genres).map((item, i) => (
     <motion.li
       key={i}
-      whileHover="textHover"
+      whileHover={genres[item] != selectedGenre && "textHover"}
       whileTap="textTap"
       animate={isMenuOpen ? "open" : "closed"}
       variants={menuItemEffects}
-      className="text-center m-2 hover:text-darkHover"
-      onClick={() => setCategory(genres[item])}
+      className={`text-center m-2 hover:text-darkHover ${
+        genres[item] == selectedGenre && `selected`
+      }`}
+      onClick={() => setGenre(genres[item])}
     >
-      <motion.p
-        variants={textEffect}
-        className="p-2"
-      >
+      <motion.p variants={textEffect} className="p-2">
         {genres[item]}
       </motion.p>
     </motion.li>

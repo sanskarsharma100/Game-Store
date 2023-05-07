@@ -27,7 +27,12 @@ function App() {
   return (
     <main>
       <Navbar />
-      <div className={`${!isMenuOpen && `hidden`} w-screen min-h-screen fixed z-30 bg-semiTransparantDark`} onClick={toggleMenu}></div>
+      <div
+        className={`${
+          !isMenuOpen && `hidden`
+        } w-screen min-h-screen fixed z-30 bg-semiTransparantDark`}
+        onClick={toggleMenu}
+      ></div>
       <Routes>
         <Route path="/" element={<Intro />} />
         <Route

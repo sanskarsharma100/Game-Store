@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .selected {
+    background-color: #CE93D8;
+    color: black;
+    border-radius: 0.5rem;
+    background-image: url('./assets/cross-dark.svg');
+    background-repeat: no-repeat;
+    background-position: 2% 50%;
+  }
+
+  .selected p:hover {
+    cursor: pointer !important;
+    color: black;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: 'none';
+    scrollbar-width: 'none'
+  }
+}

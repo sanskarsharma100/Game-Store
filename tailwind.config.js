@@ -19,7 +19,7 @@ export default {
         darkHover: "#BB86FC",
         borderColor: "#3c4144",
         borderColorActive: "#788287",
-        semiTransparantDark: "rgba(0, 0, 0, 0.8)"
+        semiTransparantDark: "rgba(0, 0, 0, 0.8)",
       },
     },
     fontFamily: {
@@ -36,5 +36,4 @@ export default {
     },
   },
   plugins: [],
-}
-
+};
