@@ -4,13 +4,18 @@ const MainContext = React.createContext();
 
 function MainContextProvider(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedGenre, setSelectedGenre] = useState('');
+
+  function setCategory(category){
+    setSelectedGenre(category)
+  }
 
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen)
   }
 
   return (
-    <MainContext.Provider value={{isMenuOpen,toggleMenu}}>
+    <MainContext.Provider value={{isMenuOpen,toggleMenu,selectedGenre, setCategory}}>
       {props.children}
     </MainContext.Provider>
   )

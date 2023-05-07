@@ -5,7 +5,7 @@ import Intro from "./components/Intro";
 import Home from "./components/Home";
 import Wishlist from "./components/Wishlist";
 import Cart from "./components/Cart";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import { useContext } from "react";
 import { MainContext } from "./Context/MainContext";
 

@@ -55,7 +55,7 @@ function Card({ game, toggleFavourite }) {
         </g>
       </motion.svg>
       <img src={game.preview[0]} alt="preview" className="rounded-t-lg" />
-      <div className="text-lightText">
+      <div className="text-lightText p-2">
         <p>{game.name}</p>
       </div>
     </motion.div>
