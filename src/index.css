@@ -3,6 +3,22 @@
 @tailwind utilities;
 
 @layer components {
+
+  body::-webkit-scrollbar {
+    width: 0.5em;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 15%);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: hsl(0, 0%, 25%);
+  }
+  body::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(0, 0%, 30%);
+  }
+
   .selected {
     background-color: #CE93D8;
     color: #1e1e1e;

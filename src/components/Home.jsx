@@ -40,7 +40,7 @@ function Home({ gamesList, toggleFavourite }) {
   const sortByOptions = sortByValues.map((item) => (
     <div
       key={item.id}
-      className="p-2 hover:text-darkHover hover:cursor-pointer"
+      className="p-[3%] hover:text-darkHover hover:cursor-pointer"
       onClick={handleSortBy}
     >
       {item.value}
@@ -55,13 +55,13 @@ function Home({ gamesList, toggleFavourite }) {
 
   return (
     <div className="w-full bg-darkBg min-h-screen pt-20 relative p-4 text-lightText">
-      <h1 className="font-heading text-5xl mb-4">
+      <h1 className="font-heading text-5xl mb-4 font-black">
         {selectedGenre || "All"} Games
       </h1>
-      <div className="font-text flex items-center gap-2 mb-4">
+      <div className="font-text flex items-center gap-2 mb-4 max-w-xs">
         <span className="whitespace-nowrap">Sort By:</span>
         <motion.div whileHover="optionsHover" className="relative w-full">
-          <motion.div className="bg-darkBg2 p-2 rounded-lg">{sortBy}</motion.div>
+          <motion.div className="bg-darkBg2 p-[3%] rounded-lg">{sortBy}</motion.div>
           <motion.div
             initial={{ display: "none" }}
             variants={optionsEffect}

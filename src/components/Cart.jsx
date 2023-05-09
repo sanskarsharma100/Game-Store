@@ -37,7 +37,7 @@ function Cart({ gamesList }) {
   return (
     <div className="w-full bg-darkBg min-h-screen pt-20 p-4 text-lightText">
       <div className="flex gap-2">
-        <h1 className="font-heading text-5xl mb-4">Cart</h1>
+        <h1 className="font-heading text-5xl mb-4 font-black">Cart</h1>
         <img src={cartImg} alt="cart.svg" className="h-12" />
       </div>
       <div className="flex-col">{cartItems}</div>
