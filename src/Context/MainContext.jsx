@@ -6,6 +6,7 @@ function MainContextProvider(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cart, setCart] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
+  const [total, setTotal] = useState(0);
 
   function setGenre(category) {
     if (category == selectedGenre) {
@@ -19,13 +20,14 @@ function MainContextProvider(props) {
     setIsMenuOpen(!isMenuOpen);
   }
 
-  function addToCart(id) {
+  function addToCart(id, price) {
     const index = cart.indexOf(id);
     if (index == -1) {
       setCart((prevCart) => [...prevCart, id]);
+      setTotal(total + Number(price));
     } else {
-      setCart((prevCart) => prevCart.filter(item => item !== id)
-      );
+      setCart((prevCart) => prevCart.filter((item) => item !== id));
+      setTotal(total - Number(price));
     }
   }
 
@@ -38,6 +40,7 @@ function MainContextProvider(props) {
         setGenre,
         cart,
         addToCart,
+        total,
       }}
     >
       {props.children}

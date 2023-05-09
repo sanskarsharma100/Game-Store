@@ -40,8 +40,13 @@ function App() {
             <Home gamesList={gamesList} toggleFavourite={toggleFavourite} />
           }
         />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/wishlist"
+          element={
+            <Wishlist gamesList={gamesList} toggleFavourite={toggleFavourite} />
+          }
+        />
+        <Route path="/cart" element={<Cart gamesList={gamesList} />} />
       </Routes>
     </main>
   );

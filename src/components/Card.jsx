@@ -8,6 +8,11 @@ import heartFilled from "../assets/heartFilled.svg";
 function Card({ game, toggleFavourite }) {
   const { isMenuOpen, cart, addToCart } = useContext(MainContext);
 
+  let indianRs = new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+});
+
   function getRatingColor() {
     if (game.rating > 4.1) {
       return "bg-best";
@@ -59,7 +64,8 @@ function Card({ game, toggleFavourite }) {
             </p>
           </div>
           <div className="flex items-center justify-between">
-            <span>&#x20b9;{game.price}</span>
+            {/* <span>&#x20b9;{game.price}</span> */}
+            <span>{indianRs.format(game.price).slice(0,-3)}</span>
             <div className="flex gap-1 items-center">
               <img
                 src={game.isFavorite ? heartFilled : heartEmpty}
@@ -71,12 +77,14 @@ function Card({ game, toggleFavourite }) {
                 onClick={toggleFavourite}
               />
               <button
-                className={`py-1 px-2 text-black font-medium rounded-lg duration-300 ${
-                  cart.includes(game.id) ? `bg-success` : `bg-darkHover`
+                className={`py-1 px-2 font-medium border rounded-lg duration-300 hover:text-darkBg2 ${
+                  cart.includes(game.id)
+                    ? `text-success border-success hover:bg-success`
+                    : `text-darkHover border-darkHover hover:bg-darkHover`
                 }`}
-                onClick={() => addToCart(game.id)}
+                onClick={() => addToCart(game.id, game.price)}
               >
-                {cart.includes(game.id) ? 'Added to cart':'Add to cart'}
+                {cart.includes(game.id) ? "Added" : "Add to cart"}
               </button>
             </div>
           </div>
