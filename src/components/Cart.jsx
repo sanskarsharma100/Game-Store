@@ -21,7 +21,7 @@ function Cart({ gamesList }) {
         >
           <p>{game.name}</p>
           <div className="flex items-center gap-2">
-            <p>{indianRs.format(game.price).slice(0,-3)}</p>
+            <p>{indianRs.format(game.price).slice(0, -3)}</p>
             <img
               src={cross}
               alt="crossImg"
@@ -40,12 +40,22 @@ function Cart({ gamesList }) {
         <h1 className="font-heading text-5xl mb-4 font-black">Cart</h1>
         <img src={cartImg} alt="cart.svg" className="h-12" />
       </div>
-      <div className="flex-col">{cartItems}</div>
-      <div className="flex justify-between p-2 border-t-2 mt-4">
-        <p>Total:</p>
-        <p>{indianRs.format(total).slice(0,-3)}</p>
-      </div>
-      <button className="w-full font-heading font-bold text-xl mt-4 p-2 border border-darkHover hover:bg-darkHover text-darkHover hover:text-darkBg2 duration-300">Place Order</button>
+      {!cart.length ? (
+        <h2 className="font-bold text-3xl text-center">
+          No Games in the cart
+        </h2>
+      ) : (
+        <>
+          <div className="flex-col">{cartItems}</div>
+          <div className="flex justify-between p-2 border-t-2 mt-4">
+            <p>Total:</p>
+            <p>{indianRs.format(total).slice(0, -3)}</p>
+          </div>
+          <button className="w-full font-heading font-bold text-xl mt-4 p-2 border border-darkHover hover:bg-darkHover text-darkHover hover:text-darkBg2 duration-300">
+            Place Order
+          </button>
+        </>
+      )}
     </div>
   );
 }
