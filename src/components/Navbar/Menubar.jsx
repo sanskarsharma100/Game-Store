@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { MainContext } from "../../Context/MainContext";
 import genres from "./../../Utils/genres";
 
-function Menubar({ links }) {
+function Menubar({ links, showCategory }) {
   const { isMenuOpen, selectedGenre, setGenre } = useContext(MainContext);
 
   const menuSlider = {
@@ -102,7 +102,7 @@ function Menubar({ links }) {
 
   return (
     <motion.div
-      initial={{ x: "96%", display:"none" }}
+      initial={{ x: "96%", display: "none" }}
       animate={isMenuOpen ? "open" : "closed"}
       variants={menuSlider}
       className="bg-darkBg flex flex-col gap-5 absolute z-[5000] h-[93vh] w-2/3 backdrop-blur overflow-y-scroll pb-3 scrollbar-hidden"
@@ -114,24 +114,27 @@ function Menubar({ links }) {
       >
         {navLinks}
       </motion.ul>
-      <div>
-        <h2 className="text-2xl text-lightText font-extrabold underline font-heading text-center mb-2">
-          Categories
-        </h2>
-        <motion.ul
-          animate={isMenuOpen ? "open" : "closed"}
-          variants={ULlist}
-          className="text-lightText font-bold xs:flex xs:align-middle text-lg overflow-hidden font-text"
-        >
-          {categories}
-        </motion.ul>
-      </div>
+      {showCategory && (
+        <div>
+          <h2 className="text-2xl text-lightText font-extrabold underline font-heading text-center mb-2">
+            Categories
+          </h2>
+          <motion.ul
+            animate={isMenuOpen ? "open" : "closed"}
+            variants={ULlist}
+            className="text-lightText font-bold xs:flex xs:align-middle text-lg overflow-hidden font-text"
+          >
+            {categories}
+          </motion.ul>
+        </div>
+      )}
     </motion.div>
   );
 }
 
 Menubar.propTypes = {
   links: PropTypes.arrayOf(PropTypes.object),
+  showCategory: PropTypes.bool,
 };
 
 export default Menubar;

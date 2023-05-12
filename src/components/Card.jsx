@@ -39,7 +39,7 @@ function Card({ game, toggleFavourite }) {
   };
 
   return (
-    <motion.div
+    <motion.section
       key={game.id}
       animate={isMenuOpen ? "menuOpened" : "menuClosed"}
       variants={homeEffect}
@@ -67,6 +67,7 @@ function Card({ game, toggleFavourite }) {
             {/* <span>&#x20b9;{game.price}</span> */}
             <span>{indianRs.format(game.price).slice(0,-3)}</span>
             <div className="flex gap-1 items-center">
+              <figure>
               <img
                 src={game.isFavorite ? heartFilled : heartEmpty}
                 alt="emptyHeart"
@@ -76,6 +77,7 @@ function Card({ game, toggleFavourite }) {
                 }`}
                 onClick={toggleFavourite}
               />
+              </figure>
               <button
                 className={`py-1 px-2 font-medium border rounded-lg duration-300 hover:text-darkBg2 ${
                   cart.includes(game.id)
@@ -90,7 +92,7 @@ function Card({ game, toggleFavourite }) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </motion.section>
   );
 }
 
