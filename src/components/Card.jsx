@@ -8,10 +8,10 @@ import heartFilled from "../assets/heartFilled.svg";
 function Card({ game, toggleFavourite }) {
   const { isMenuOpen, cart, addToCart } = useContext(MainContext);
 
-  let indianRs = new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'INR',
-});
+  let indianRs = new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+  });
 
   function getRatingColor() {
     if (game.rating > 4.1) {
@@ -50,39 +50,39 @@ function Card({ game, toggleFavourite }) {
         boxShadow: "0 0 20px hsl(0, 0%, 30%)",
       }}
       whileTap={{ scale: 1.012 }}
-      className="bg-darkBg2 rounded-lg active:scale-150"
+      className="rounded-lg bg-darkBg2 active:scale-150"
     >
       <img src={game.preview[0]} alt="preview" className="rounded-t-lg" />
-      <div className="text-lightText p-2 mt-2">
-        <div className="flex-col justify-between relative">
+      <div className="mt-2 p-2 text-lightText">
+        <div className="relative flex-col justify-between">
           <div className="flex justify-between">
-            <p className="font-bold text-xl min-h-[4rem]">{game.name}</p>
+            <p className="min-h-[4rem] text-xl font-bold">{game.name}</p>
             <p
-              className={`px-2 font-semibold rounded-lg flex items-center max-h-7 ${getRatingColor()}`}
+              className={`flex max-h-7 items-center rounded-lg px-2 font-semibold ${getRatingColor()}`}
             >
               {game.rating}
             </p>
           </div>
           <div className="flex items-center justify-between">
             {/* <span>&#x20b9;{game.price}</span> */}
-            <span>{indianRs.format(game.price).slice(0,-3)}</span>
-            <div className="flex gap-1 items-center">
+            <span>{indianRs.format(game.price).slice(0, -3)}</span>
+            <div className="flex items-center gap-1">
               <figure>
-              <img
-                src={game.isFavorite ? heartFilled : heartEmpty}
-                alt="emptyHeart"
-                id={game.id}
-                className={`m-2 w-6 select-none duration-300 ${
-                  game.isFavorite || `hover:drop-shadow-4xl`
-                }`}
-                onClick={toggleFavourite}
-              />
+                <img
+                  src={game.isFavorite ? heartFilled : heartEmpty}
+                  alt="emptyHeart"
+                  id={game.id}
+                  className={`m-2 w-6 select-none duration-300 ${
+                    game.isFavorite || `hover:drop-shadow-4xl`
+                  }`}
+                  onClick={toggleFavourite}
+                />
               </figure>
               <button
-                className={`py-1 px-2 font-medium border rounded-lg duration-300 hover:text-darkBg2 ${
+                className={`rounded-lg border px-2 py-1 font-medium duration-300 hover:text-darkBg2 ${
                   cart.includes(game.id)
-                    ? `text-success border-success hover:bg-success`
-                    : `text-darkHover border-darkHover hover:bg-darkHover`
+                    ? `border-success text-success hover:bg-success`
+                    : `border-darkHover text-darkHover hover:bg-darkHover`
                 }`}
                 onClick={() => addToCart(game.id, game.price)}
               >

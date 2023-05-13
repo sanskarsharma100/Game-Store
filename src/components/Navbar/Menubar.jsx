@@ -5,14 +5,16 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { MainContext } from "../../Context/MainContext";
 import genres from "./../../Utils/genres";
+import { useIsSmall } from "./../../Utils/constants";
 
 function Menubar({ links, showCategory }) {
   const { isMenuOpen, selectedGenre, setGenre } = useContext(MainContext);
+  const isSmall = useIsSmall();
 
   const menuSlider = {
     open: {
-      opacity: 0.9,
-      right: "65%",
+      opacity: 0.75,
+      right: "0%",
       transition: {
         ease: [0, 1.1, 0, 1.05],
         duration: 0.5,
@@ -72,7 +74,7 @@ function Menubar({ links, showCategory }) {
       whileTap="textTap"
       animate={isMenuOpen ? "open" : "closed"}
       variants={menuItemEffects}
-      className="text-center m-2 hover:text-darkHover"
+      className="m-2 text-center hover:text-darkHover"
     >
       <Link to={`/${links.to}`}>
         <motion.p variants={textEffect} className="p-2">
@@ -89,7 +91,7 @@ function Menubar({ links, showCategory }) {
       whileTap="textTap"
       animate={isMenuOpen ? "open" : "closed"}
       variants={menuItemEffects}
-      className={`text-center m-2 hover:text-darkHover ${
+      className={`m-2 text-center hover:text-darkHover ${
         genres[item] == selectedGenre && `selected`
       }`}
       onClick={() => setGenre(genres[item])}
@@ -100,29 +102,30 @@ function Menubar({ links, showCategory }) {
     </motion.li>
   ));
 
+  console.log("isSmall", isSmall);
+
   return (
     <motion.div
-      initial={{ x: "96%", display: "none" }}
-      animate={isMenuOpen ? "open" : "closed"}
-      variants={menuSlider}
-      className="bg-darkBg flex flex-col gap-5 absolute z-[5000] h-[93vh] w-2/3 backdrop-blur overflow-y-scroll pb-3 scrollbar-hidden"
+      animate={isMenuOpen && isSmall ? "open" : "closed"}
+      variants={isSmall ? menuSlider : ""}
+      className="scrollbar-hidden absolute z-[5000] h-[93vh] w-2/3 flex-col gap-5 overflow-y-scroll bg-darkBg pb-3 backdrop-blur xs:static xs:hidden xs:h-fit xs:w-fit xs:flex-row"
     >
       <motion.ul
         animate={isMenuOpen ? "open" : "closed"}
         variants={ULlist}
-        className="text-lightText font-bold xs:flex xs:align-middle text-lg font-text"
+        className="font-text text-lg font-bold text-lightText xs:flex xs:align-middle"
       >
         {navLinks}
       </motion.ul>
       {showCategory && (
         <div>
-          <h2 className="text-2xl text-lightText font-extrabold underline font-heading text-center mb-2">
+          <h2 className="mb-2 text-center font-heading text-2xl font-extrabold text-lightText underline">
             Categories
           </h2>
           <motion.ul
             animate={isMenuOpen ? "open" : "closed"}
             variants={ULlist}
-            className="text-lightText font-bold xs:flex xs:align-middle text-lg overflow-hidden font-text"
+            className="overflow-hidden font-text text-lg font-bold text-lightText xs:flex xs:align-middle"
           >
             {categories}
           </motion.ul>

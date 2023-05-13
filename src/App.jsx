@@ -29,7 +29,7 @@ function App() {
       <div
         className={`${
           !isMenuOpen && `hidden`
-        } w-screen min-h-screen fixed z-30 bg-semiTransparantDark`}
+        } fixed z-30 min-h-screen w-screen bg-semiTransparantDark xs:hidden`}
         onClick={toggleMenu}
       ></div>
       <Routes>

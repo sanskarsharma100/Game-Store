@@ -40,7 +40,7 @@ function Home({ gamesList, toggleFavourite }) {
   const sortByOptions = sortByValues.map((item) => (
     <div
       key={item.id}
-      className="p-[3%] hover:text-darkHover hover:cursor-pointer"
+      className="p-[3%] hover:cursor-pointer hover:text-darkHover"
       onClick={handleSortBy}
     >
       {item.value}
@@ -54,27 +54,27 @@ function Home({ gamesList, toggleFavourite }) {
   };
 
   return (
-    <div className="w-full bg-darkBg min-h-screen pt-20 relative p-4 text-lightText">
-      <h1 className="font-heading text-5xl mb-4 font-black">
+    <div className="relative min-h-screen w-full bg-darkBg p-4 pt-20 text-lightText">
+      <h1 className="mb-4 font-heading text-5xl font-black">
         {selectedGenre || "All"} Games
       </h1>
-      <div className="font-text flex items-center gap-2 mb-4 max-w-xs">
+      <div className="mb-4 flex max-w-xs items-center gap-2 font-text">
         <span className="whitespace-nowrap">Sort By:</span>
         <motion.div whileHover="optionsHover" className="relative w-full">
-          <motion.div className="bg-darkBg2 p-[3%] rounded-lg">
+          <motion.div className="rounded-lg bg-darkBg2 p-[3%]">
             {sortBy}
           </motion.div>
           <motion.div
             initial={{ display: "none" }}
             variants={optionsEffect}
-            className="absolute bg-darkBg2 w-full z-[8000] rounded-lg"
+            className="absolute z-[8000] w-full rounded-lg bg-darkBg2"
           >
             {sortByOptions}
           </motion.div>
         </motion.div>
       </div>
       {!gamesCards.length ? (
-        <div className="w-full flex justify-center p-10">
+        <div className="flex w-full justify-center p-10">
           <div
             className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
             role="status"
@@ -83,7 +83,7 @@ function Home({ gamesList, toggleFavourite }) {
           </div>
         </div>
       ) : (
-        <div className="grid gap-4 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 items-center place-items-center overflow-visible font-text">
+        <div className="grid place-items-center items-center gap-4 overflow-visible font-text xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
           {gamesCards}
         </div>
       )}

@@ -41,6 +41,7 @@ function MainContextProvider(props) {
         cart,
         addToCart,
         total,
+        setIsMenuOpen,
       }}
     >
       {props.children}

@@ -17,7 +17,7 @@ function Cart({ gamesList }) {
       return (
         <div
           key={game.id}
-          className="flex justify-between items-center p-2 bg-darkBg2 mb-2 rounded-lg"
+          className="mb-2 flex items-center justify-between rounded-lg bg-darkBg2 p-2"
         >
           <p>{game.name}</p>
           <div className="flex items-center gap-2">
@@ -25,7 +25,7 @@ function Cart({ gamesList }) {
             <img
               src={cross}
               alt="crossImg"
-              className="w-8 p-2 hover:bg-worst hover:cursor-pointer duration-300 rounded-lg"
+              className="w-8 rounded-lg p-2 duration-300 hover:cursor-pointer hover:bg-worst"
               onClick={() => addToCart(game.id)}
             />
           </div>
@@ -35,23 +35,21 @@ function Cart({ gamesList }) {
   });
 
   return (
-    <div className="w-full bg-darkBg min-h-screen pt-20 p-4 text-lightText">
+    <div className="min-h-screen w-full bg-darkBg p-4 pt-20 text-lightText">
       <div className="flex gap-2">
-        <h1 className="font-heading text-5xl mb-4 font-black">Cart</h1>
+        <h1 className="mb-4 font-heading text-5xl font-black">Cart</h1>
         <img src={cartImg} alt="cart.svg" className="h-12" />
       </div>
       {!cart.length ? (
-        <h2 className="font-bold text-3xl text-center">
-          No Games in the cart
-        </h2>
+        <h2 className="text-center text-3xl font-bold">No Games in the cart</h2>
       ) : (
         <>
           <div className="flex-col">{cartItems}</div>
-          <div className="flex justify-between p-2 border-t-2 mt-4">
+          <div className="mt-4 flex justify-between border-t-2 p-2">
             <p>Total:</p>
             <p>{indianRs.format(total).slice(0, -3)}</p>
           </div>
-          <button className="w-full font-heading font-bold text-xl mt-4 p-2 border border-darkHover hover:bg-darkHover text-darkHover hover:text-darkBg2 duration-300">
+          <button className="mt-4 w-full border border-darkHover p-2 font-heading text-xl font-bold text-darkHover duration-300 hover:bg-darkHover hover:text-darkBg2">
             Place Order
           </button>
         </>
