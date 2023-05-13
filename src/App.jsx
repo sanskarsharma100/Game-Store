@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import games from "./Utils/games";
 import Intro from "./components/Intro";

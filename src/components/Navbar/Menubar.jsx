@@ -1,7 +1,6 @@
-import React from "react";
 import PropTypes from "prop-types";
-import { motion, animate, useCycle } from "framer-motion";
-import { useContext, useState } from "react";
+import { motion } from "framer-motion";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { MainContext } from "../../Context/MainContext";
 import genres from "./../../Utils/genres";

@@ -1,5 +1,5 @@
-import { motion, animate, useCycle } from "framer-motion";
-import PropTypes, { func } from "prop-types";
+import { motion } from "framer-motion";
+import PropTypes from "prop-types";
 import { useContext } from "react";
 import { MainContext } from "../Context/MainContext";
 import heartEmpty from "../assets/heartEmpty.svg";

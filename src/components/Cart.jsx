@@ -1,7 +1,7 @@
 import { PropTypes } from "prop-types";
 import cartImg from "../assets/cartImg.svg";
 import { MainContext } from "../Context/MainContext";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import cross from "../assets/cross.svg";
 
 function Cart({ gamesList }) {

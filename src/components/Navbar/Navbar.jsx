@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ReactComponent as HamBtn } from "../../assets/ham.svg";
 import { ReactComponent as CrossBtn } from "../../assets/cross.svg";
 import { MainContext } from "../../Context/MainContext";

@@ -1,8 +1,8 @@
-import { motion, animate, useCycle } from "framer-motion";
-import PropTypes, { func } from "prop-types";
+import { motion } from "framer-motion";
+import PropTypes from "prop-types";
 import Card from "./Card";
 import { MainContext } from "../Context/MainContext";
-import { useContext, useReducer, useState } from "react";
+import { useContext, useState } from "react";
 
 function Home({ gamesList, toggleFavourite }) {
   const sortByValues = [
