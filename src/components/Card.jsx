@@ -4,9 +4,11 @@ import { useContext } from "react";
 import { MainContext } from "../Context/MainContext";
 import heartEmpty from "../assets/heartEmpty.svg";
 import heartFilled from "../assets/heartFilled.svg";
+import { useIsSmall } from "./../Utils/constants";
 
 function Card({ game, toggleFavourite }) {
   const { isMenuOpen, cart, addToCart } = useContext(MainContext);
+  const isSmall = useIsSmall();
 
   let indianRs = new Intl.NumberFormat("en-IN", {
     style: "currency",
@@ -41,7 +43,7 @@ function Card({ game, toggleFavourite }) {
   return (
     <motion.section
       key={game.id}
-      animate={isMenuOpen ? "menuOpened" : "menuClosed"}
+      animate={isMenuOpen && isSmall ? "menuOpened" : "menuClosed"}
       variants={homeEffect}
       whileHover={{
         scale: 1.02,
@@ -52,7 +54,9 @@ function Card({ game, toggleFavourite }) {
       whileTap={{ scale: 1.012 }}
       className="rounded-lg bg-darkBg2 active:scale-150"
     >
-      <img src={game.preview[0]} alt="preview" className="rounded-t-lg" />
+      <figure>
+        <img src={game.preview[0]} alt="preview" className="rounded-t-lg" />
+      </figure>
       <div className="mt-2 p-2 text-lightText">
         <div className="relative flex-col justify-between">
           <div className="flex justify-between">
@@ -63,8 +67,7 @@ function Card({ game, toggleFavourite }) {
               {game.rating}
             </p>
           </div>
-          <div className="flex items-center justify-between">
-            {/* <span>&#x20b9;{game.price}</span> */}
+          <div className="flex flex-wrap items-center justify-between">
             <span>{indianRs.format(game.price).slice(0, -3)}</span>
             <div className="flex items-center gap-1">
               <figure>

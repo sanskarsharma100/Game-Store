@@ -9,7 +9,7 @@ function Wishlist({ gamesList, toggleFavourite }) {
   ));
 
   return (
-    <div className="relative min-h-screen w-full bg-darkBg p-4 pt-20 text-lightText">
+    <div className="relative min-h-screen w-full bg-darkBg p-4 text-lightText">
       <h1 className="mb-4 font-heading text-5xl font-black">Wishlist</h1>
       {!gamesCards.length ? (
         <h2 className="text-center text-3xl font-bold">

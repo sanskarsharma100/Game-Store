@@ -3,15 +3,19 @@ import PropTypes from "prop-types";
 import Card from "./Card";
 import { MainContext } from "../Context/MainContext";
 import { useContext, useState } from "react";
+import genres from "./../Utils/genres";
+import { useIsSmall } from "../Utils/constants";
 
 function Home({ gamesList, toggleFavourite }) {
+  const isSmall = useIsSmall();
+
   const sortByValues = [
     { id: 1, value: "Relevance" },
     { id: 2, value: "Price(Highest First)" },
     { id: 3, value: "Price(Lowest First)" },
     { id: 4, value: "Rating" },
   ];
-  const { selectedGenre } = useContext(MainContext);
+  const { selectedGenre, setGenre } = useContext(MainContext);
   const [sortBy, setSortBy] = useState(sortByValues[0].value);
 
   const filteredGames =
@@ -53,40 +57,76 @@ function Home({ gamesList, toggleFavourite }) {
     },
   };
 
+  const textEffect = {
+    textHover: {
+      scale: 1.1,
+      cursor: "pointer",
+    },
+    textTap: {
+      scale: 0.95,
+      cursor: "pointer",
+    },
+  };
+
+  const categories = Object.keys(genres).map((item, i) => (
+    <motion.li
+      key={i}
+      whileHover={genres[item] != selectedGenre && "textHover"}
+      whileTap="textTap"
+      className={` hover:text-darkHover ${
+        genres[item] == selectedGenre && `selected bg-[98%_50%]`
+      }`}
+      onClick={() => setGenre(genres[item])}
+    >
+      <motion.p variants={textEffect} className="p-2">
+        {genres[item]}
+      </motion.p>
+    </motion.li>
+  ));
+
   return (
-    <div className="relative min-h-screen w-full bg-darkBg p-4 pt-20 text-lightText">
-      <h1 className="mb-4 font-heading text-5xl font-black">
-        {selectedGenre || "All"} Games
-      </h1>
-      <div className="mb-4 flex max-w-xs items-center gap-2 font-text">
-        <span className="whitespace-nowrap">Sort By:</span>
-        <motion.div whileHover="optionsHover" className="relative w-full">
-          <motion.div className="rounded-lg bg-darkBg2 p-[3%]">
-            {sortBy}
-          </motion.div>
-          <motion.div
-            initial={{ display: "none" }}
-            variants={optionsEffect}
-            className="absolute z-[8000] w-full rounded-lg bg-darkBg2"
-          >
-            {sortByOptions}
-          </motion.div>
-        </motion.div>
-      </div>
-      {!gamesCards.length ? (
-        <div className="flex w-full justify-center p-10">
-          <div
-            className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-            role="status"
-          >
-            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
-          </div>
-        </div>
-      ) : (
-        <div className="grid place-items-center items-center gap-4 overflow-visible font-text xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
-          {gamesCards}
-        </div>
+    <div className="relative min-h-screen w-full gap-4 bg-darkBg p-4 text-lightText xs:flex">
+      {!isSmall && (
+        <aside className="sticky top-16 mt-2 h-fit min-w-[11rem] ss:min-w-[15rem]">
+          <h2 className="m-2 font-heading text-3xl font-black text-lightText underline sm:text-4xl">
+            Categories
+          </h2>
+          <ul className="m-2 font-text text-xl font-semibold text-lightText sm:text-2xl">
+            {categories}
+          </ul>
+        </aside>
       )}
+      <div>
+        <h1 className="mb-4 font-heading text-5xl font-black sm:text-7xl">
+          {selectedGenre || "All"} Games
+        </h1>
+        <div className="mb-4 flex max-w-xs items-center gap-2 font-text">
+          <span className="whitespace-nowrap">Sort By:</span>
+          <motion.div whileHover="optionsHover" className="relative w-full">
+            <motion.div className="rounded-lg bg-darkBg2 p-[3%]">
+              {sortBy}
+            </motion.div>
+            <motion.div
+              initial={{ display: "none" }}
+              variants={optionsEffect}
+              className="absolute z-[8000] w-full rounded-lg bg-darkBg2"
+            >
+              {sortByOptions}
+            </motion.div>
+          </motion.div>
+        </div>
+        {!gamesCards.length ? (
+          <div className="flex w-full justify-center p-10">
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]">
+              <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+            </div>
+          </div>
+        ) : (
+          <div className="grid place-items-center items-center gap-4 overflow-visible font-text sm:grid-cols-2 md:grid-cols-4">
+            {gamesCards}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

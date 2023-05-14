@@ -1,14 +1,22 @@
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MainContext } from "../../Context/MainContext";
 import genres from "./../../Utils/genres";
 import { useIsSmall } from "./../../Utils/constants";
 
 function Menubar({ links, showCategory }) {
-  const { isMenuOpen, selectedGenre, setGenre } = useContext(MainContext);
+  const { isMenuOpen, selectedGenre, setGenre,setIsMenuOpen } = useContext(MainContext);
   const isSmall = useIsSmall();
+
+  useEffect(() => {
+    if(!isSmall) {
+      setIsMenuOpen(true)
+    } else {
+      setIsMenuOpen(false)
+    }
+  },[isSmall])
 
   const menuSlider = {
     open: {
@@ -31,7 +39,7 @@ function Menubar({ links, showCategory }) {
 
   const textEffect = {
     textHover: {
-      scale: 1.2,
+      scale: 1.1,
       cursor: "pointer",
     },
     textTap: {
@@ -102,12 +110,13 @@ function Menubar({ links, showCategory }) {
   ));
 
   console.log("isSmall", isSmall);
+  console.log("isMenuOpen", isMenuOpen);
 
   return (
     <motion.div
       animate={isMenuOpen && isSmall ? "open" : "closed"}
       variants={isSmall ? menuSlider : ""}
-      className="scrollbar-hidden absolute z-[5000] h-[93vh] w-2/3 flex-col gap-5 overflow-y-scroll bg-darkBg pb-3 backdrop-blur xs:static xs:hidden xs:h-fit xs:w-fit xs:flex-row"
+      className="scrollbar-hidden absolute z-[5000] h-[93vh] w-2/3 flex-col gap-5 overflow-y-scroll bg-darkBg pb-3 backdrop-blur xs:static xs:h-fit xs:w-fit xs:flex-row"
     >
       <motion.ul
         animate={isMenuOpen ? "open" : "closed"}
@@ -116,7 +125,7 @@ function Menubar({ links, showCategory }) {
       >
         {navLinks}
       </motion.ul>
-      {showCategory && (
+      {showCategory && isSmall && (
         <div>
           <h2 className="mb-2 text-center font-heading text-2xl font-extrabold text-lightText underline">
             Categories
@@ -124,7 +133,7 @@ function Menubar({ links, showCategory }) {
           <motion.ul
             animate={isMenuOpen ? "open" : "closed"}
             variants={ULlist}
-            className="overflow-hidden font-text text-lg font-bold text-lightText xs:flex xs:align-middle"
+            className="overflow-hidden font-text text-lg font-bold text-lightText xs:flex xs:align-middle xs:flex-col"
           >
             {categories}
           </motion.ul>

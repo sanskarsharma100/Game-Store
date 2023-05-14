@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const MainContext = React.createContext();
 
 function MainContextProvider(props) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
   const [cart, setCart] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
   const [total, setTotal] = useState(0);

@@ -17,16 +17,21 @@ function Cart({ gamesList }) {
       return (
         <div
           key={game.id}
-          className="mb-2 flex items-center justify-between rounded-lg bg-darkBg2 p-2"
+          className="mb-2 flex items-center justify-between rounded-lg bg-darkBg2 p-2 gap-4"
         >
-          <p>{game.name}</p>
+          <div className="flex items-center gap-2">
+            <figure>
+              <img src={game.preview[0]} alt="preview" className="max-w-[10rem] ss:max-w-xs hidden xs:block" />
+            </figure>
+            <p>{game.name}</p>
+          </div>
           <div className="flex items-center gap-2">
             <p>{indianRs.format(game.price).slice(0, -3)}</p>
             <img
               src={cross}
               alt="crossImg"
               className="w-8 rounded-lg p-2 duration-300 hover:cursor-pointer hover:bg-worst"
-              onClick={() => addToCart(game.id)}
+              onClick={() => addToCart(game.id, game.price)}
             />
           </div>
         </div>
@@ -35,7 +40,7 @@ function Cart({ gamesList }) {
   });
 
   return (
-    <div className="min-h-screen w-full bg-darkBg p-4 pt-20 text-lightText">
+    <div className="min-h-screen w-full bg-darkBg p-4 text-lightText">
       <div className="flex gap-2">
         <h1 className="mb-4 font-heading text-5xl font-black">Cart</h1>
         <img src={cartImg} alt="cart.svg" className="h-12" />
