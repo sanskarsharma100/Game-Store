@@ -17,8 +17,8 @@ function Navbar() {
 
   return (
     <header className="sticky top-0 z-50">
-      <nav className="w-full bg-darkBg">
-        <div className="relative max-w-6xl xs:flex xs:justify-between m-auto px-2">
+      <nav className="w-full bg-darkBg px-4">
+        <div className="relative xs:flex xs:justify-between m-auto px-2">
           <div className="relative z-[9999] flex h-16 justify-center bg-darkBg">
             <div className="m-auto">
               <p className="m-auto w-fit border p-1 font-heading text-2xl font-extrabold text-lightText">

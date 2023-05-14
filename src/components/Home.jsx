@@ -59,7 +59,7 @@ function Home({ gamesList, toggleFavourite }) {
 
   const textEffect = {
     textHover: {
-      scale: 1.1,
+      x: '5%',
       cursor: "pointer",
     },
     textTap: {
@@ -87,17 +87,17 @@ function Home({ gamesList, toggleFavourite }) {
   return (
     <div className="relative min-h-screen w-full gap-4 bg-darkBg p-4 text-lightText xs:flex">
       {!isSmall && (
-        <aside className="sticky top-16 mt-2 h-fit min-w-[11rem] ss:min-w-[15rem]">
+        <aside className="sticky top-16 mt-2 h-fit min-w-[11rem] sm:min-w-[15rem]">
           <h2 className="m-2 font-heading text-3xl font-black text-lightText underline sm:text-4xl">
             Categories
           </h2>
-          <ul className="m-2 font-text text-xl font-semibold text-lightText sm:text-2xl">
+          <ul className="m-2 font-text text-xl font-medium text-lightText sm:text-2xl">
             {categories}
           </ul>
         </aside>
       )}
       <div>
-        <h1 className="mb-4 font-heading text-5xl font-black sm:text-7xl">
+        <h1 className="mb-4 font-heading text-5xl font-black sm:text-7xl ss:text-6xl">
           {selectedGenre || "All"} Games
         </h1>
         <div className="mb-4 flex max-w-xs items-center gap-2 font-text">

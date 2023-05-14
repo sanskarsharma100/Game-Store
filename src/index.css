@@ -40,6 +40,12 @@
     transform: scale(1) !important;
   }
 
+  .activeRoute p {
+    color: #CE93D8 ;
+    scale: 1.1;
+    text-decoration: underline;
+  }
+
   .scrollbar-hidden::-webkit-scrollbar {
     display: none;
     -ms-overflow-style: 'none';

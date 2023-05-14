@@ -1,22 +1,23 @@
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MainContext } from "../../Context/MainContext";
 import genres from "./../../Utils/genres";
 import { useIsSmall } from "./../../Utils/constants";
 
 function Menubar({ links, showCategory }) {
-  const { isMenuOpen, selectedGenre, setGenre,setIsMenuOpen } = useContext(MainContext);
+  const { isMenuOpen, selectedGenre, setGenre, setIsMenuOpen } =
+    useContext(MainContext);
   const isSmall = useIsSmall();
 
   useEffect(() => {
-    if(!isSmall) {
-      setIsMenuOpen(true)
+    if (!isSmall) {
+      setIsMenuOpen(true);
     } else {
-      setIsMenuOpen(false)
+      setIsMenuOpen(false);
     }
-  },[isSmall])
+  }, [isSmall]);
 
   const menuSlider = {
     open: {
@@ -83,11 +84,14 @@ function Menubar({ links, showCategory }) {
       variants={menuItemEffects}
       className="m-2 text-center hover:text-darkHover"
     >
-      <Link to={`/${links.to}`}>
+      <NavLink
+        to={`/${links.to}`}
+        className={({ isActive }) => isActive ? "activeRoute":''}
+      >
         <motion.p variants={textEffect} className="p-2">
           {links.name}
         </motion.p>
-      </Link>
+      </NavLink>
     </motion.li>
   ));
 
@@ -108,9 +112,6 @@ function Menubar({ links, showCategory }) {
       </motion.p>
     </motion.li>
   ));
-
-  console.log("isSmall", isSmall);
-  console.log("isMenuOpen", isMenuOpen);
 
   return (
     <motion.div
@@ -133,7 +134,7 @@ function Menubar({ links, showCategory }) {
           <motion.ul
             animate={isMenuOpen ? "open" : "closed"}
             variants={ULlist}
-            className="overflow-hidden font-text text-lg font-bold text-lightText xs:flex xs:align-middle xs:flex-col"
+            className="overflow-hidden font-text text-lg font-bold text-lightText xs:flex xs:flex-col xs:align-middle"
           >
             {categories}
           </motion.ul>
