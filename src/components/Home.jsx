@@ -5,6 +5,7 @@ import { MainContext } from "../Context/MainContext";
 import { useContext, useState } from "react";
 import genres from "./../Utils/genres";
 import { useIsSmall } from "../Utils/constants";
+import { Link } from "react-router-dom";
 
 function Home({ gamesList, toggleFavourite }) {
   const isSmall = useIsSmall();
@@ -38,7 +39,9 @@ function Home({ gamesList, toggleFavourite }) {
   }
 
   const gamesCards = filteredGames.map((game) => (
-    <Card key={game.id} game={game} toggleFavourite={toggleFavourite} />
+    <Link key={game.id} to={`/store/${game.id}`}>
+      <Card game={game} toggleFavourite={toggleFavourite} />
+    </Link>
   ));
 
   const sortByOptions = sortByValues.map((item) => (
@@ -59,7 +62,7 @@ function Home({ gamesList, toggleFavourite }) {
 
   const textEffect = {
     textHover: {
-      x: '5%',
+      x: "5%",
       cursor: "pointer",
     },
     textTap: {
@@ -85,7 +88,7 @@ function Home({ gamesList, toggleFavourite }) {
   ));
 
   return (
-    <div className="relative min-h-screen w-full gap-4 bg-darkBg p-4 text-lightText xs:flex">
+    <div className="relative min-h-screen w-full gap-2 bg-darkBg p-4 text-lightText xs:flex">
       {!isSmall && (
         <aside className="sticky top-16 mt-2 h-fit min-w-[11rem] sm:min-w-[15rem]">
           <h2 className="m-2 font-heading text-3xl font-black text-lightText underline sm:text-4xl">
@@ -97,7 +100,7 @@ function Home({ gamesList, toggleFavourite }) {
         </aside>
       )}
       <div>
-        <h1 className="mb-4 font-heading text-5xl font-black sm:text-7xl ss:text-6xl">
+        <h1 className="mb-2 font-heading text-5xl font-black ss:text-6xl sm:text-7xl">
           {selectedGenre || "All"} Games
         </h1>
         <div className="mb-4 flex max-w-xs items-center gap-2 font-text">
@@ -122,7 +125,7 @@ function Home({ gamesList, toggleFavourite }) {
             </div>
           </div>
         ) : (
-          <div className="grid place-items-center items-center gap-4 overflow-visible font-text sm:grid-cols-2 md:grid-cols-4">
+          <div className="grid place-items-center items-center gap-4 overflow-visible font-text sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-3">
             {gamesCards}
           </div>
         )}

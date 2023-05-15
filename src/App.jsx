@@ -8,6 +8,7 @@ import Cart from "./components/Cart";
 import Navbar from "./components/Navbar/Navbar";
 import { useContext } from "react";
 import { MainContext } from "./Context/MainContext";
+import GameDetail from './components/GameDetail';
 
 function App() {
   const [gamesList, setGamesList] = useState(games);
@@ -40,6 +41,7 @@ function App() {
             <Home gamesList={gamesList} toggleFavourite={toggleFavourite} />
           }
         />
+        <Route path="/store/:id" element={<GameDetail />} />
         <Route
           path="/wishlist"
           element={

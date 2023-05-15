@@ -117,7 +117,7 @@ function Menubar({ links, showCategory }) {
     <motion.div
       animate={isMenuOpen && isSmall ? "open" : "closed"}
       variants={isSmall ? menuSlider : ""}
-      className="scrollbar-hidden absolute z-[5000] h-[93vh] w-2/3 flex-col gap-5 overflow-y-scroll bg-darkBg pb-3 backdrop-blur xs:static xs:h-fit xs:w-fit xs:flex-row"
+      className="scrollbar-hidden absolute z-[5000] h-[93vh] w-2/3 flex-col gap-5 overflow-y-scroll bg-darkBg pb-3 backdrop-blur xs:static xs:h-fit xs:w-fit xs:pb-0"
     >
       <motion.ul
         animate={isMenuOpen ? "open" : "closed"}

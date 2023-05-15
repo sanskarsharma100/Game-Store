@@ -17,11 +17,15 @@ function Cart({ gamesList }) {
       return (
         <div
           key={game.id}
-          className="mb-2 flex items-center justify-between rounded-lg bg-darkBg2 p-2 gap-4"
+          className="mb-2 flex items-center justify-between gap-4 rounded-lg bg-darkBg2 p-2"
         >
           <div className="flex items-center gap-2">
             <figure>
-              <img src={game.preview[0]} alt="preview" className="max-w-[10rem] ss:max-w-xs hidden xs:block" />
+              <img
+                src={game.preview[0]}
+                alt="preview"
+                className="hidden max-w-[10rem] xs:block"
+              />
             </figure>
             <p>{game.name}</p>
           </div>
@@ -40,25 +44,31 @@ function Cart({ gamesList }) {
   });
 
   return (
-    <div className="min-h-screen w-full bg-darkBg p-4 text-lightText">
-      <div className="flex gap-2">
-        <h1 className="mb-4 font-heading text-5xl font-black">Cart</h1>
-        <img src={cartImg} alt="cart.svg" className="h-12" />
+    <div className="bg-darkBg">
+      <div className="m-auto min-h-screen max-w-screen-sm p-4 text-lightText">
+        <div className="flex gap-2">
+          <h1 className="mb-4 font-heading text-5xl font-black">Cart</h1>
+          <img src={cartImg} alt="cart.svg" className="h-12" />
+        </div>
+        {!cart.length ? (
+          <h2 className="text-center text-3xl font-bold">
+            No Games in the cart
+          </h2>
+        ) : (
+          <>
+            <section className="flex-col">{cartItems}</section>
+            <div className="mt-4 flex justify-between border-t-2 p-2">
+              <p>Total:</p>
+              <p>
+                {indianRs.format(total).slice(0, -3) + " (" + cart.length + ")"}
+              </p>
+            </div>
+            <button className="mt-4 w-full border border-darkHover p-2 font-heading text-xl font-bold text-darkHover duration-300 hover:bg-darkHover hover:text-darkBg2">
+              Place Order
+            </button>
+          </>
+        )}
       </div>
-      {!cart.length ? (
-        <h2 className="text-center text-3xl font-bold">No Games in the cart</h2>
-      ) : (
-        <>
-          <div className="flex-col">{cartItems}</div>
-          <div className="mt-4 flex justify-between border-t-2 p-2">
-            <p>Total:</p>
-            <p>{indianRs.format(total).slice(0, -3)}</p>
-          </div>
-          <button className="mt-4 w-full border border-darkHover p-2 font-heading text-xl font-bold text-darkHover duration-300 hover:bg-darkHover hover:text-darkBg2">
-            Place Order
-          </button>
-        </>
-      )}
     </div>
   );
 }

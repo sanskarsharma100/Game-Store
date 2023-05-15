@@ -5,6 +5,7 @@ import { MainContext } from "../Context/MainContext";
 import heartEmpty from "../assets/heartEmpty.svg";
 import heartFilled from "../assets/heartFilled.svg";
 import { useIsSmall } from "./../Utils/constants";
+import { Link } from 'react-router-dom';
 
 function Card({ game, toggleFavourite }) {
   const { isMenuOpen, cart, addToCart } = useContext(MainContext);
