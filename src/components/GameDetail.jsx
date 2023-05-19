@@ -11,7 +11,7 @@ function GameDetail({ gamesList, toggleFavourite }) {
       <h1 className="text-center font-heading text-4xl font-black h-fit xs:text-left">
         {game.name}
       </h1>
-      <section className="aspect-[16/9] my-0 mx-auto"> 
+      <section className="aspect-[16/9] my-0 mx-auto overflow-hidden"> 
         <ImageSlider images={game.preview} />
       </section>
     </div>
