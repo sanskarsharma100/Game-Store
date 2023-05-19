@@ -36,12 +36,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Intro />} />
         <Route
-          path="/store"
+          exact path="/store"
           element={
             <Home gamesList={gamesList} toggleFavourite={toggleFavourite} />
           }
         />
-        <Route path="/store/:id" element={<GameDetail />} />
+        <Route path="/store/:id" element={<GameDetail gamesList={gamesList} toggleFavourite={toggleFavourite}/>} />
         <Route
           path="/wishlist"
           element={

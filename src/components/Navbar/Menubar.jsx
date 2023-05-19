@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { useContext, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { MainContext } from "../../Context/MainContext";
 import genres from "./../../Utils/genres";
 import { useIsSmall } from "./../../Utils/constants";
@@ -86,6 +86,7 @@ function Menubar({ links, showCategory }) {
     >
       <NavLink
         to={`/${links.to}`}
+        end
         className={({ isActive }) => isActive ? "activeRoute":''}
       >
         <motion.p variants={textEffect} className="p-2">

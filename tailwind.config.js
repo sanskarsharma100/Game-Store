@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      transformOrigin: {
+        'center': '50% 50%',
+      },
       dropShadow: {
         "3xl": "0 0 10px hsl(0, 0%, 60%)",
         "4xl": [
@@ -17,9 +20,11 @@ export default {
         cardHover: "hsl(0, 0%, 20%)",
         lightText: "#ffffffde",
         darkHover: "#BB86FC",
+        neonPink: "rgb(255, 16, 240)",
         borderColor: "#3c4144",
         borderColorActive: "#788287",
         semiTransparantDark: "rgba(0, 0, 0, 0.8)",
+        semiDark: "rgba(0, 0, 0, 0.2)",
         success: '#4CAF50',
         best: '#2E7D32',
         bad: '#FF9800',
