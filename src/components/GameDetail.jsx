@@ -1,19 +1,58 @@
 import { PropTypes } from "prop-types";
 import { useParams } from "react-router-dom";
 import ImageSlider from "./ImageSlider";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 function GameDetail({ gamesList, toggleFavourite }) {
   const params = useParams();
   const game = gamesList[params.id - 1];
+  const [readMore, setReadMore] = useState(false);
+
+  const description = game.description.map((desc) => (
+    <p key={desc} className="mt-2 leading-5">
+      {desc}
+    </p>
+  ));
+
+  const expandEffect = {
+    expand: {
+      height: "100%",
+      cursor: "pointer",
+    },
+    shrink: {
+      height: "10rem",
+      cursor: "pointer",
+    },
+  };
 
   return (
-    <div className="relative min-h-screen w-full gap-2 bg-darkBg px-2 py-4 text-lightText">
-      <h1 className="text-center font-heading text-4xl font-black h-fit xs:text-left">
+    <div className="relative min-h-screen w-full gap-2 bg-darkBg px-3 py-4 text-lightText">
+      <h1 className="mb-3 h-fit text-center font-heading text-4xl font-black tracking-wide xs:text-left">
         {game.name}
       </h1>
-      <section className="aspect-[16/9] my-0 mx-auto overflow-hidden"> 
+      <section className="mx-auto my-0 aspect-[16/9] overflow-hidden">
         <ImageSlider images={game.preview} />
       </section>
+      <div className="mt-3 rounded-lg bg-darkBg2">
+        <motion.article
+          initial={"shrink"}
+          animate={readMore ? "expand" : "shrink"}
+          variants={expandEffect}
+          className={`overflow-hidden px-4 pt-4`}
+        >
+          <h2 className="border-b-2 font-heading text-2xl font-bold tracking-wider">
+            About
+          </h2>
+          <div className="mt-2 font-text font-normal">{description}</div>
+        </motion.article>
+        <button
+          className="mt-1 w-full rounded-b-lg bg-cardHover p-1 font-heading font-bold shadow-5xl hover:text-neonPink"
+          onClick={() => setReadMore(!readMore)}
+        >
+          {readMore ? "Hide" : "Read more"}
+        </button>
+      </div>
     </div>
   );
 }

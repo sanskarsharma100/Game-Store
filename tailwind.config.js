@@ -6,6 +6,11 @@ export default {
       transformOrigin: {
         'center': '50% 50%',
       },
+      boxShadow: {
+        "darker": "inset 0 -15px 0 hsl(0, 0%, 10%)",
+        '5xl': '0 -20px 22px 0 hsl(0, 0%,0%)',
+        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+      },
       dropShadow: {
         "3xl": "0 0 10px hsl(0, 0%, 60%)",
         "4xl": [
