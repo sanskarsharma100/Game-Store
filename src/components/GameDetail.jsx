@@ -53,6 +53,108 @@ function GameDetail({ gamesList, toggleFavourite }) {
           {readMore ? "Hide" : "Read more"}
         </button>
       </div>
+      <section className="mt-3 rounded-lg bg-darkBg2 p-4">
+        <h3 className="border-b-2 font-heading text-2xl font-bold tracking-wider">
+          Requirements
+        </h3>
+        <div className="mt-3 grid gap-4 ss:flex">
+          <div className="flex-[50%]">
+            <p className="text-lg italic">Minimum</p>
+            <ul className="text-base">
+              {game.requirements.minimum.os && (
+                <li>
+                  <span className="font-bold">OS:</span>{" "}
+                  {game.requirements.minimum.os}
+                </li>
+              )}
+              {game.requirements.minimum.processor && (
+                <li>
+                  <span className="text-lg font-bold">Processor:</span>{" "}
+                  {game.requirements.minimum.processor}
+                </li>
+              )}
+              {game.requirements.minimum.memory && (
+                <li>
+                  <span className="text-lg font-bold">Memory:</span>{" "}
+                  {game.requirements.minimum.memory}
+                </li>
+              )}
+              {game.requirements.minimum.graphics && (
+                <li>
+                  <span className="text-lg font-bold">Graphics:</span>{" "}
+                  {game.requirements.minimum.graphics}
+                </li>
+              )}
+              {game.requirements.minimum.directX && (
+                <li>
+                  <span className="text-lg font-bold">DirectX:</span>{" "}
+                  {game.requirements.minimum.directX}
+                </li>
+              )}
+              {game.requirements.minimum.storage && (
+                <li>
+                  <span className="text-lg font-bold">Storage:</span>{" "}
+                  {game.requirements.minimum.storage}
+                </li>
+              )}
+              {game.requirements.minimum.soundCard && (
+                <li>
+                  <span className="text-lg font-bold">Sound Card:</span>{" "}
+                  {game.requirements.minimum.soundCard}
+                </li>
+              )}
+            </ul>
+          </div>
+          <hr />
+          <div className="flex-[50%]">
+            <p className="text-lg italic">Recommended</p>
+            <ul className="text-base">
+              {game.requirements.recommended.os && (
+                <li>
+                  <span className="font-bold">OS:</span>{" "}
+                  {game.requirements.recommended.os}
+                </li>
+              )}
+              {game.requirements.recommended.processor && (
+                <li>
+                  <span className="text-lg font-bold">Processor:</span>{" "}
+                  {game.requirements.recommended.processor}
+                </li>
+              )}
+              {game.requirements.recommended.memory && (
+                <li>
+                  <span className="text-lg font-bold">Memory:</span>{" "}
+                  {game.requirements.recommended.memory}
+                </li>
+              )}
+              {game.requirements.recommended.graphics && (
+                <li>
+                  <span className="text-lg font-bold">Graphics:</span>{" "}
+                  {game.requirements.recommended.graphics}
+                </li>
+              )}
+              {game.requirements.recommended.directX && (
+                <li>
+                  <span className="text-lg font-bold">DirectX:</span>{" "}
+                  {game.requirements.recommended.directX}
+                </li>
+              )}
+              {game.requirements.recommended.storage && (
+                <li>
+                  <span className="text-lg font-bold">Storage:</span>{" "}
+                  {game.requirements.recommended.storage}
+                </li>
+              )}
+              {game.requirements.recommended.soundCard && (
+                <li>
+                  <span className="text-lg font-bold">Sound Card:</span>{" "}
+                  {game.requirements.recommended.soundCard}
+                </li>
+              )}
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

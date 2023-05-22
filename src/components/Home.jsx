@@ -71,9 +71,11 @@ function Home({ gamesList, toggleFavourite }) {
     },
   };
 
+  console.log('genres["openWorld"]',genres["openWorld"]);
+
   const categories = Object.keys(genres).map((item, i) => (
     <motion.li
-      key={i}
+      key={i+item}
       whileHover={genres[item] != selectedGenre && "textHover"}
       whileTap="textTap"
       className={` hover:text-darkHover ${
