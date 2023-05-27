@@ -24,6 +24,7 @@ export default {
         darkBg2: "#1e1e1e",
         cardHover: "hsl(0, 0%, 20%)",
         lightText: "#ffffffde",
+        darkText: "hsl(0, 0%, 45%)",
         darkHover: "#BB86FC",
         neonPink: "rgb(255, 16, 240)",
         borderColor: "#3c4144",
@@ -37,8 +38,8 @@ export default {
       },
     },
     fontFamily: {
-      heading: ["Roboto", "sans-serif"],
-      text: ["Ubuntu", "sans-serif"],
+      text: ["Roboto", "sans-serif"],
+      heading: ["Ubuntu", "sans-serif"],
     },
     screens: {
       xs: "480px",

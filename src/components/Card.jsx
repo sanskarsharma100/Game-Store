@@ -50,7 +50,7 @@ function Card({ game, toggleFavourite }) {
         scale: 1.02,
         cursor: "pointer",
         backgroundColor: "hsl(0, 0%, 10%)",
-        boxShadow: "0 0 10px hsl(267, 95%, 76%)",
+        boxShadow: "0 0 10px hsl(0, 0%, 20%)",
       }}
       whileTap={{ scale: 1.012 }}
       className="rounded-lg bg-darkBg2 active:scale-150"

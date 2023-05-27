@@ -23,15 +23,21 @@ function GameDetail({ gamesList, toggleFavourite }) {
     </p>
   ));
 
+  // const tagsList = game.genre.map((genre) => (
+  //   <li key={}>{genre}</li>
+  // ))
+
   return (
     <div className="relative min-h-screen w-full gap-2 bg-darkBg px-4 py-4 text-lightText lg:px-10">
-      <div className="mb-3 flex items-center justify-between gap-3">
+      <div className="mb-3 flex flex-col ">
         <h1 className="h-fit text-center font-heading text-4xl font-black tracking-wide xs:text-left">
           {game.name}
         </h1>
+        <p className="font-text text-darkText font-light">by <span className="italic">{game.publisher}</span></p>
+        <p className="font-text text-darkText font-light">Release Date: <span className="italic">{game.releaseDate}</span></p>
       </div>
       <div className="justify-between gap-5 md:flex">
-        <section className="mx-auto my-0 aspect-[16/9] overflow-hidden md:min-w-[60%]">
+        <section className="mx-auto my-0 overflow-hidden md:min-w-[60%]">
           <ImageSlider images={game.preview} />
         </section>
         <div className="flex flex-col-reverse justify-between pt-3 md:flex-col md:pt-0">
@@ -42,7 +48,7 @@ function GameDetail({ gamesList, toggleFavourite }) {
               <h2 className="border-b-2 font-heading text-2xl font-bold tracking-wider">
                 About
               </h2>
-              <div className="mt-2 font-text font-normal">{description}</div>
+              <div className="mt-2 font-text font-light">{description}</div>
             </motion.article>
           </div>
           <div className="flex items-center gap-2">
@@ -176,6 +182,9 @@ function GameDetail({ gamesList, toggleFavourite }) {
             </ul>
           </div>
         </div>
+      </section>
+      <section className="py-3 px-4 bg-darkBg2 mt-3 rounded-lg">
+        <p className="text-xl">Tags: <span className="text-base">{game.genre.join(', ')}</span></p>
       </section>
     </div>
   );
