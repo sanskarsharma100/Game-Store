@@ -17,16 +17,12 @@ function ImageSlider({ images }) {
     scrollToIndex(newIndex);
   }
 
-  function slideLeft() {
-    console.log("imgScroll", imgScroll.current);
-  }
-
   function scrollToIndex(index) {
     const listNode = imgScroll.current;
     const imgNode = listNode.querySelectorAll(".imgListDiv > img")[index];
     imgNode.scrollIntoView({
       behavior: "smooth",
-      block: "nearest",
+      block: "nearest"
     });
   }
 
@@ -62,7 +58,7 @@ function ImageSlider({ images }) {
       src={img}
       alt="gameImg"
       key={index * index + img}
-      className={`h-20 hover:cursor-pointer ${
+      className={`h-16 hover:cursor-pointer ${
         index == currentIndex && `border-2 border-neonPink`
       }`}
       onClick={() => slideToImage(index)}
@@ -93,12 +89,6 @@ function ImageSlider({ images }) {
         ref={imgScroll}
         className="imgListDiv relative mt-4 flex h-full w-full gap-2 overflow-x-scroll pb-1 scroll-smooth justify-center"
       >
-        {/* <button
-          className="sticky left-0 h-20 bg-darkBg2 duration-300"
-          onClick={slideLeft}
-        >
-          <span className="left float-left ml-2 inline-block border-b-4 border-r-4 p-2 duration-300"></span>
-        </button> */}
         {imgList}
       </div>
     </div>

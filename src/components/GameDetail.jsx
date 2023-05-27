@@ -23,10 +23,6 @@ function GameDetail({ gamesList, toggleFavourite }) {
     </p>
   ));
 
-  // const tagsList = game.genre.map((genre) => (
-  //   <li key={}>{genre}</li>
-  // ))
-
   return (
     <div className="relative min-h-screen w-full gap-2 bg-darkBg px-4 py-4 text-lightText lg:px-10">
       <div className="mb-3 flex flex-col ">

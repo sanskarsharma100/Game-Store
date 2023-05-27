@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { motion } from "framer-motion";
+import { motion, useIsPresent } from "framer-motion";
 import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { MainContext } from "../../Context/MainContext";
@@ -10,7 +10,7 @@ function Menubar({ links, showCategory }) {
   const { isMenuOpen, selectedGenre, setGenre, setIsMenuOpen } =
     useContext(MainContext);
   const isSmall = useIsSmall();
-
+  
   useEffect(() => {
     if (!isSmall) {
       setIsMenuOpen(true);
@@ -23,6 +23,7 @@ function Menubar({ links, showCategory }) {
     open: {
       opacity: 0.75,
       right: "0%",
+      display: "block",
       transition: {
         ease: [0, 1.1, 0, 1.05],
         duration: 0.5,
@@ -34,6 +35,9 @@ function Menubar({ links, showCategory }) {
       transition: {
         ease: [0.26, -0.01, 1, -0.54],
         duration: 0.4,
+      },
+      transitionEnd: {
+        display: "none",
       },
     },
   };
@@ -118,7 +122,7 @@ function Menubar({ links, showCategory }) {
     <motion.div
       animate={isMenuOpen && isSmall ? "open" : "closed"}
       variants={isSmall ? menuSlider : ""}
-      className="scrollbar-hidden absolute z-[5000] h-[93vh] w-2/3 flex-col gap-5 overflow-y-scroll bg-darkBg pb-3 backdrop-blur xs:static xs:h-fit xs:w-fit xs:pb-0"
+      className='scrollbar-hidden absolute z-[5000] h-[93vh] w-2/3 flex-col gap-5 overflow-y-scroll bg-darkBg pb-3 backdrop-blur xs:static xs:h-fit xs:w-fit xs:pb-0'
     >
       <motion.ul
         animate={isMenuOpen ? "open" : "closed"}
