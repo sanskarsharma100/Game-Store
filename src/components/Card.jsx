@@ -5,7 +5,7 @@ import { MainContext } from "../Context/MainContext";
 import heartEmpty from "../assets/heartEmpty.svg";
 import heartFilled from "../assets/heartFilled.svg";
 import { useIsSmall } from "./../Utils/constants";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Card({ game, toggleFavourite }) {
   const { isMenuOpen, cart, addToCart } = useContext(MainContext);
@@ -89,8 +89,9 @@ function Card({ game, toggleFavourite }) {
                     : `border-darkHover text-darkHover hover:bg-darkHover`
                 }`}
                 onClick={(e) => {
-                  e.preventDefault() 
-                  addToCart(game.id, game.price)}}
+                  e.preventDefault();
+                  addToCart(game.id, game.price);
+                }}
               >
                 {cart.includes(game.id) ? "Added" : "Add to cart"}
               </button>

@@ -29,8 +29,12 @@ function GameDetail({ gamesList, toggleFavourite }) {
         <h1 className="h-fit text-center font-heading text-4xl font-black tracking-wide xs:text-left">
           {game.name}
         </h1>
-        <p className="font-text text-darkText font-light">by <span className="italic">{game.publisher}</span></p>
-        <p className="font-text text-darkText font-light">Release Date: <span className="italic">{game.releaseDate}</span></p>
+        <p className="font-text font-light text-darkText">
+          by <span className="italic">{game.publisher}</span>
+        </p>
+        <p className="font-text font-light text-darkText">
+          Release Date: <span className="italic">{game.releaseDate}</span>
+        </p>
       </div>
       <div className="justify-between gap-5 md:flex">
         <section className="mx-auto my-0 overflow-hidden md:min-w-[60%]">
@@ -38,9 +42,7 @@ function GameDetail({ gamesList, toggleFavourite }) {
         </section>
         <div className="flex flex-col-reverse pt-3 md:flex-col md:pt-0">
           <div className="mt-3 rounded-lg bg-darkBg2 p-4 md:mb-4 md:mt-0">
-            <motion.article
-              className={`max-h-80 overflow-y-scroll`}
-            >
+            <motion.article className={`max-h-80 overflow-y-scroll`}>
               <h2 className="border-b-2 font-heading text-2xl font-bold tracking-wider">
                 About
               </h2>
@@ -48,7 +50,7 @@ function GameDetail({ gamesList, toggleFavourite }) {
             </motion.article>
           </div>
           <div className="flex items-center gap-2">
-            <div className="flex items-center justify-between rounded-lg bg-darkBg2 px-4 py-2 text-xl w-full">
+            <div className="flex w-full items-center justify-between rounded-lg bg-darkBg2 px-4 py-2 text-xl">
               <p className="font-bold">
                 {indianRs.format(game.price).slice(0, -3)}
               </p>
@@ -63,7 +65,7 @@ function GameDetail({ gamesList, toggleFavourite }) {
                 {cart.includes(game.id) ? "Added" : "Add"} to cart
               </button>
             </div>
-            <figure className="p-3 bg-darkBg2 rounded-lg">
+            <figure className="rounded-lg bg-darkBg2 p-3">
               <img
                 src={game.isFavorite ? heartFilled : heartEmpty}
                 alt="emptyHeart"
@@ -179,8 +181,10 @@ function GameDetail({ gamesList, toggleFavourite }) {
           </div>
         </div>
       </section>
-      <section className="py-3 px-4 bg-darkBg2 mt-3 rounded-lg">
-        <p className="text-xl">Tags: <span className="text-base">{game.genre.join(', ')}</span></p>
+      <section className="mt-3 rounded-lg bg-darkBg2 px-4 py-3">
+        <p className="text-xl">
+          Tags: <span className="text-base">{game.genre.join(", ")}</span>
+        </p>
       </section>
     </div>
   );

@@ -4,12 +4,12 @@ export default {
   theme: {
     extend: {
       transformOrigin: {
-        'center': '50% 50%',
+        center: "50% 50%",
       },
       boxShadow: {
-        "darker": "inset 0 -15px 0 hsl(0, 0%, 10%)",
-        '5xl': '0 -20px 22px 0 hsl(0, 0%,0%)',
-        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+        darker: "inset 0 -15px 0 hsl(0, 0%, 10%)",
+        "5xl": "0 -20px 22px 0 hsl(0, 0%,0%)",
+        "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
       },
       dropShadow: {
         "3xl": "0 0 10px hsl(0, 0%, 60%)",
@@ -31,10 +31,10 @@ export default {
         borderColorActive: "#788287",
         semiTransparantDark: "rgba(0, 0, 0, 0.8)",
         semiDark: "rgba(0, 0, 0, 0.2)",
-        success: '#4CAF50',
-        best: '#2E7D32',
-        bad: '#FF9800',
-        worst: '#C62828',
+        success: "#4CAF50",
+        best: "#2E7D32",
+        bad: "#FF9800",
+        worst: "#C62828",
       },
     },
     fontFamily: {

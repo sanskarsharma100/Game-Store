@@ -71,19 +71,19 @@ function Home({ gamesList, toggleFavourite }) {
     },
   };
 
-  console.log('genres["openWorld"]',genres["openWorld"]);
+  console.log('genres["openWorld"]', genres["openWorld"]);
 
   const categories = Object.keys(genres).map((item, i) => (
     <motion.li
-      key={i+item}
+      key={i + item}
       whileHover={genres[item] != selectedGenre && "textHover"}
       whileTap="textTap"
-      className={` hover:text-darkHover ${
+      className={`hover:text-darkHover ${
         genres[item] == selectedGenre && `selected bg-[98%_50%]`
       }`}
       onClick={() => setGenre(genres[item])}
     >
-      <motion.p variants={textEffect} className="p-2">
+      <motion.p variants={textEffect} className="px-2 py-1">
         {genres[item]}
       </motion.p>
     </motion.li>
@@ -92,18 +92,18 @@ function Home({ gamesList, toggleFavourite }) {
   return (
     <div className="relative min-h-screen w-full gap-2 bg-darkBg p-4 text-lightText xs:flex">
       {!isSmall && (
-        <aside className="sticky top-16 mt-2 h-fit min-w-[11rem] sm:min-w-[15rem]">
-          <h2 className="m-2 font-heading text-3xl font-black text-lightText underline sm:text-4xl">
+        <aside className="scrollbar-hidden sticky top-16 mt-2 h-full min-w-[11rem] overflow-y-scroll sm:min-w-[15rem]">
+          <h2 className="m-2 font-heading text-3xl font-black text-lightText underline ss:text-3xl sm:text-4xl">
             Categories
           </h2>
-          <ul className="m-2 font-text text-xl font-medium text-lightText sm:text-2xl">
+          <ul className="m-1 font-text text-lg font-medium text-lightText sm:text-xl">
             {categories}
           </ul>
         </aside>
       )}
       <div>
-        <h1 className="mb-2 font-heading text-5xl font-black ss:text-6xl sm:text-7xl">
-          {selectedGenre || "All"} Games
+        <h1 className="mb-2 font-heading text-4xl font-black xs:text-5xl ss:text-6xl sm:text-7xl">
+          {selectedGenre || "All Games"}
         </h1>
         <div className="mb-4 flex max-w-xs items-center gap-2 font-text">
           <span className="whitespace-nowrap">Sort By:</span>
@@ -127,7 +127,7 @@ function Home({ gamesList, toggleFavourite }) {
             </div>
           </div>
         ) : (
-          <div className="grid place-items-center items-center gap-4 overflow-visible font-text sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-3">
+          <div className="grid place-items-center items-center gap-4 overflow-visible font-text sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {gamesCards}
           </div>
         )}

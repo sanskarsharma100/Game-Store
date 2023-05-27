@@ -5,7 +5,15 @@ const genres = {
   racing: "Racing",
   adventure: "Adventure",
   singleplayer: "Singleplayer",
+  competitive: "Competitive",
+  mystery: "Mystery",
+  battleRoyal: "Battle Royale",
   rpg: "RPG",
+  fps: "FPS",
+  coop: "Co-Op",
+  pvp: "PvP",
+  horror: "Horror",
+  sports: "Sports",
   sciFi: "Sci-fi",
 };
 

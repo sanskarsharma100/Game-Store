@@ -22,7 +22,7 @@ function ImageSlider({ images }) {
     const imgNode = listNode.querySelectorAll(".imgListDiv > img")[index];
     imgNode.scrollIntoView({
       behavior: "smooth",
-      block: "nearest"
+      block: "nearest",
     });
   }
 
@@ -57,7 +57,7 @@ function ImageSlider({ images }) {
     <img
       src={img}
       alt="gameImg"
-      key={index * index + img}
+      key={img + index}
       className={`h-16 hover:cursor-pointer ${
         index == currentIndex && `border-2 border-neonPink`
       }`}
@@ -87,7 +87,7 @@ function ImageSlider({ images }) {
       </div>
       <div
         ref={imgScroll}
-        className="imgListDiv relative mt-4 flex h-full w-full gap-2 overflow-x-scroll pb-1 scroll-smooth justify-center"
+        className="imgListDiv relative mt-4 flex h-full w-full gap-2 overflow-x-scroll scroll-smooth pb-1"
       >
         {imgList}
       </div>
