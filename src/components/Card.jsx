@@ -59,7 +59,7 @@ function Card({ game, toggleFavourite }) {
         <img src={game.preview[0]} alt="preview" className="rounded-t-lg" />
       </figure>
       <div className="mt-2 p-2 text-lightText">
-        <div className="relative flex-col justify-between">
+        <div className="flex-col justify-between">
           <div className="flex justify-between">
             <p className="min-h-[4rem] text-xl font-bold">{game.name}</p>
             <p
@@ -88,7 +88,9 @@ function Card({ game, toggleFavourite }) {
                     ? `border-success text-success hover:bg-success`
                     : `border-darkHover text-darkHover hover:bg-darkHover`
                 }`}
-                onClick={() => addToCart(game.id, game.price)}
+                onClick={(e) => {
+                  e.preventDefault() 
+                  addToCart(game.id, game.price)}}
               >
                 {cart.includes(game.id) ? "Added" : "Add to cart"}
               </button>

@@ -40,7 +40,7 @@ function GameDetail({ gamesList, toggleFavourite }) {
         <section className="mx-auto my-0 overflow-hidden md:min-w-[60%]">
           <ImageSlider images={game.preview} />
         </section>
-        <div className="flex flex-col-reverse justify-between pt-3 md:flex-col md:pt-0">
+        <div className="flex flex-col-reverse pt-3 md:flex-col md:pt-0">
           <div className="mt-3 rounded-lg bg-darkBg2 p-4 md:mb-4 md:mt-0">
             <motion.article
               className={`max-h-80 overflow-y-scroll`}

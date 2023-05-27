@@ -45,7 +45,7 @@ function Cart({ gamesList }) {
 
   return (
     <div className="bg-darkBg">
-      <div className="m-auto min-h-screen max-w-screen-sm p-4 text-lightText">
+      <div className={`m-auto min-h-screen p-4 text-lightText ${cart.length ? 'max-w-screen-sm':''}`}>
         <div className="flex gap-2">
           <h1 className="mb-4 font-heading text-5xl font-black">Cart</h1>
           <img src={cartImg} alt="cart.svg" className="h-12" />
