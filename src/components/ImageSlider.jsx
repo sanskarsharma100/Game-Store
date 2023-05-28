@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import PropTypes, { func } from "prop-types";
+import PropTypes from "prop-types";
 import { useState } from "react";
 
 function ImageSlider({ images }) {
@@ -33,6 +33,7 @@ function ImageSlider({ images }) {
 
   const dots = images.map((img, index) => (
     <button
+      role="button"
       key={img + index}
       className={`m-1 h-[10px] w-[10px] rounded-lg duration-300 ${
         index == currentIndex ? `bg-neonPink` : `bg-white`
@@ -56,9 +57,9 @@ function ImageSlider({ images }) {
   const imgList = images.map((img, index) => (
     <img
       src={img}
-      alt="gameImg"
+      alt="Game Photo"
       key={img + index}
-      className={`h-16 hover:cursor-pointer ${
+      className={`h-12 hover:cursor-pointer xs:h-16 ${
         index == currentIndex && `border-2 border-neonPink`
       }`}
       onClick={() => slideToImage(index)}
@@ -70,16 +71,18 @@ function ImageSlider({ images }) {
       <div className="relative flex aspect-video h-full w-full">
         {slider}
         <button
+          role="button"
           className="group absolute left-0 top-0 h-full w-[12%] rounded-l-lg duration-300 hover:bg-semiDark"
           onClick={previousSlide}
         >
-          <span className="arrow left float-left ml-[40%] duration-300 group-hover:ml-[30%]"></span>
+          <span className="left float-left ml-[40%] border-b-8 border-r-8 p-2 duration-300 group-hover:ml-[30%] xs:p-3"></span>
         </button>
         <button
+          role="button"
           className="group absolute right-0 top-0 h-full w-[12%] rounded-r-lg duration-300 hover:bg-semiDark"
           onClick={nextSlide}
         >
-          <span className="arrow right float-right mr-[40%] duration-300 group-hover:mr-[30%]"></span>
+          <span className="right float-right mr-[40%] border-b-8 border-r-8 p-2 duration-300 group-hover:mr-[30%] xs:p-3"></span>
         </button>
         <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 -translate-y-1/2">
           {dots}
@@ -87,7 +90,7 @@ function ImageSlider({ images }) {
       </div>
       <div
         ref={imgScroll}
-        className="imgListDiv relative mt-4 flex h-full w-full gap-2 overflow-x-scroll scroll-smooth pb-1"
+        className="imgListDiv slider-scrollbar relative mt-4 flex h-full w-full gap-2 overflow-x-scroll scroll-smooth pb-1"
       >
         {imgList}
       </div>

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ImageSlider from "./ImageSlider";
 import heartEmpty from "../assets/heartEmpty.svg";
 import heartFilled from "../assets/heartFilled.svg";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { motion } from "framer-motion";
 import { MainContext } from "../Context/MainContext";
 
@@ -26,13 +26,13 @@ function GameDetail({ gamesList, toggleFavourite }) {
   return (
     <div className="relative min-h-screen w-full gap-2 bg-darkBg px-4 py-4 text-lightText lg:px-10">
       <div className="mb-3 flex flex-col ">
-        <h1 className="h-fit text-center font-heading text-4xl font-black tracking-wide xs:text-left">
+        <h1 className="h-fit font-heading text-3xl font-black tracking-wide xs:text-4xl">
           {game.name}
         </h1>
-        <p className="font-text font-light text-darkText">
+        <p className="font-text text-sm font-light text-darkText xs:text-base">
           by <span className="italic">{game.publisher}</span>
         </p>
-        <p className="font-text font-light text-darkText">
+        <p className="font-text text-sm font-light text-darkText xs:text-base">
           Release Date: <span className="italic">{game.releaseDate}</span>
         </p>
       </div>
@@ -43,22 +43,25 @@ function GameDetail({ gamesList, toggleFavourite }) {
         <div className="flex flex-col-reverse pt-3 md:flex-col md:pt-0">
           <div className="mt-3 rounded-lg bg-darkBg2 p-4 md:mb-4 md:mt-0">
             <motion.article className={`max-h-80 overflow-y-scroll`}>
-              <h2 className="border-b-2 font-heading text-2xl font-bold tracking-wider">
+              <h2 className="border-b-2 font-heading text-xl font-bold tracking-wider xs:text-2xl">
                 About
               </h2>
-              <div className="mt-2 font-text font-light">{description}</div>
+              <div className="mt-2 font-text text-sm font-light xs:text-base">
+                {description}
+              </div>
             </motion.article>
           </div>
           <div className="flex items-center gap-2">
-            <div className="flex w-full items-center justify-between rounded-lg bg-darkBg2 px-4 py-2 text-xl">
+            <div className="flex w-full items-center justify-between rounded-lg bg-darkBg2 px-4 py-2 font-heading text-lg xs:text-xl">
               <p className="font-bold">
                 {indianRs.format(game.price).slice(0, -3)}
               </p>
               <button
+                role="button"
                 className={`rounded-lg px-2 py-1 font-medium duration-300 ${
                   cart.includes(game.id)
-                    ? ` text-success `
-                    : ` text-lightText hover:text-darkHover`
+                    ? `text-success`
+                    : `text-lightText hover:text-darkHover`
                 }`}
                 onClick={() => addToCart(game.id, game.price)}
               >
@@ -68,7 +71,7 @@ function GameDetail({ gamesList, toggleFavourite }) {
             <figure className="rounded-lg bg-darkBg2 p-3">
               <img
                 src={game.isFavorite ? heartFilled : heartEmpty}
-                alt="emptyHeart"
+                alt="Wishlist Icon"
                 id={game.id}
                 className={`m-auto w-9 select-none duration-300 hover:cursor-pointer ${
                   game.isFavorite || `hover:drop-shadow-4xl`
@@ -80,52 +83,64 @@ function GameDetail({ gamesList, toggleFavourite }) {
         </div>
       </div>
       <section className="mt-3 rounded-lg bg-darkBg2 p-4">
-        <h3 className="border-b-2 font-heading text-2xl font-bold tracking-wider">
+        <h3 className="border-b-2 font-heading text-xl font-bold tracking-wider xs:text-2xl">
           Requirements
         </h3>
         <div className="mt-3 grid gap-4 ss:flex">
           <div className="flex-[50%]">
-            <p className="text-lg italic">Minimum</p>
-            <ul className="text-base">
+            <p className="text-base italic xs:text-lg">Minimum</p>
+            <ul className="text-sm xs:text-base">
               {game.requirements.minimum.os && (
                 <li>
-                  <span className="font-bold">OS:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">OS:</span>{" "}
                   {game.requirements.minimum.os}
                 </li>
               )}
               {game.requirements.minimum.processor && (
                 <li>
-                  <span className="text-lg font-bold">Processor:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">
+                    Processor:
+                  </span>{" "}
                   {game.requirements.minimum.processor}
                 </li>
               )}
               {game.requirements.minimum.memory && (
                 <li>
-                  <span className="text-lg font-bold">Memory:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">
+                    Memory:
+                  </span>{" "}
                   {game.requirements.minimum.memory}
                 </li>
               )}
               {game.requirements.minimum.graphics && (
                 <li>
-                  <span className="text-lg font-bold">Graphics:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">
+                    Graphics:
+                  </span>{" "}
                   {game.requirements.minimum.graphics}
                 </li>
               )}
               {game.requirements.minimum.directX && (
                 <li>
-                  <span className="text-lg font-bold">DirectX:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">
+                    DirectX:
+                  </span>{" "}
                   {game.requirements.minimum.directX}
                 </li>
               )}
               {game.requirements.minimum.storage && (
                 <li>
-                  <span className="text-lg font-bold">Storage:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">
+                    Storage:
+                  </span>{" "}
                   {game.requirements.minimum.storage}
                 </li>
               )}
               {game.requirements.minimum.soundCard && (
                 <li>
-                  <span className="text-lg font-bold">Sound Card:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">
+                    Sound Card:
+                  </span>{" "}
                   {game.requirements.minimum.soundCard}
                 </li>
               )}
@@ -133,47 +148,59 @@ function GameDetail({ gamesList, toggleFavourite }) {
           </div>
           <hr />
           <div className="flex-[50%]">
-            <p className="text-lg italic">Recommended</p>
-            <ul className="text-base">
+            <p className="text-base italic xs:text-lg">Recommended</p>
+            <ul className="text-sm xs:text-base">
               {game.requirements.recommended.os && (
                 <li>
-                  <span className="font-bold">OS:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">OS:</span>{" "}
                   {game.requirements.recommended.os}
                 </li>
               )}
               {game.requirements.recommended.processor && (
                 <li>
-                  <span className="text-lg font-bold">Processor:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">
+                    Processor:
+                  </span>{" "}
                   {game.requirements.recommended.processor}
                 </li>
               )}
               {game.requirements.recommended.memory && (
                 <li>
-                  <span className="text-lg font-bold">Memory:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">
+                    Memory:
+                  </span>{" "}
                   {game.requirements.recommended.memory}
                 </li>
               )}
               {game.requirements.recommended.graphics && (
                 <li>
-                  <span className="text-lg font-bold">Graphics:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">
+                    Graphics:
+                  </span>{" "}
                   {game.requirements.recommended.graphics}
                 </li>
               )}
               {game.requirements.recommended.directX && (
                 <li>
-                  <span className="text-lg font-bold">DirectX:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">
+                    DirectX:
+                  </span>{" "}
                   {game.requirements.recommended.directX}
                 </li>
               )}
               {game.requirements.recommended.storage && (
                 <li>
-                  <span className="text-lg font-bold">Storage:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">
+                    Storage:
+                  </span>{" "}
                   {game.requirements.recommended.storage}
                 </li>
               )}
               {game.requirements.recommended.soundCard && (
                 <li>
-                  <span className="text-lg font-bold">Sound Card:</span>{" "}
+                  <span className="text-base font-bold xs:text-lg">
+                    Sound Card:
+                  </span>{" "}
                   {game.requirements.recommended.soundCard}
                 </li>
               )}
@@ -182,8 +209,11 @@ function GameDetail({ gamesList, toggleFavourite }) {
         </div>
       </section>
       <section className="mt-3 rounded-lg bg-darkBg2 px-4 py-3">
-        <p className="text-xl">
-          Tags: <span className="text-base">{game.genre.join(", ")}</span>
+        <p className="font-heading text-lg xs:text-xl">
+          Tags:{" "}
+          <span className="font-text text-base xs:text-lg">
+            {game.genre.join(", ")}
+          </span>
         </p>
       </section>
     </div>

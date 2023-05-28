@@ -3,10 +3,11 @@ import { ReactComponent as HamBtn } from "../../assets/ham.svg";
 import { ReactComponent as CrossBtn } from "../../assets/cross.svg";
 import { MainContext } from "../../Context/MainContext";
 import Menubar from "./Menubar";
+import StoreLogo from "../../assets/store-logo.png";
 import { useLocation } from "react-router-dom";
 
 function Navbar() {
-  const { isMenuOpen, toggleMenu, setIsMenuOpen } = useContext(MainContext);
+  const { isMenuOpen, toggleMenu } = useContext(MainContext);
   const currLocation = useLocation();
 
   const links = [
@@ -20,10 +21,8 @@ function Navbar() {
       <nav className="w-full bg-darkBg xs:px-4">
         <div className="relative xs:flex xs:justify-between m-auto px-2">
           <div className="relative z-[9999] flex h-16 justify-center bg-darkBg">
-            <div className="m-auto">
-              <p className="m-auto w-fit border p-1 font-heading text-2xl font-extrabold text-lightText">
-                GameStore
-              </p>
+            <div className="m-auto" role="banner">
+              <img src={StoreLogo} alt="Game Store Logo" className="m-auto w-40"/>
             </div>
             <div
               className="absolute right-0 my-auto mr-2 translate-y-2/4 cursor-pointer space-y-1.5 xs:hidden"

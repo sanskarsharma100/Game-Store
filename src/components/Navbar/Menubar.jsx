@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { motion, useIsPresent } from "framer-motion";
+import { motion } from "framer-motion";
 import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { MainContext } from "../../Context/MainContext";

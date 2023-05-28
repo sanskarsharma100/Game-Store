@@ -76,7 +76,7 @@ function Home({ gamesList, toggleFavourite }) {
   const categories = Object.keys(genres).map((item, i) => (
     <motion.li
       key={i + item}
-      whileHover={genres[item] != selectedGenre && "textHover"}
+      whileHover={genres[item] != selectedGenre ? "textHover" : "x:0"}
       whileTap="textTap"
       className={`hover:text-darkHover ${
         genres[item] == selectedGenre && `selected bg-[98%_50%]`
@@ -92,11 +92,11 @@ function Home({ gamesList, toggleFavourite }) {
   return (
     <div className="relative min-h-screen w-full gap-2 bg-darkBg p-4 text-lightText xs:flex">
       {!isSmall && (
-        <aside className="scrollbar-hidden sticky top-16 mt-2 h-full min-w-[11rem] overflow-y-scroll sm:min-w-[15rem]">
-          <h2 className="m-2 font-heading text-3xl font-black text-lightText underline ss:text-3xl sm:text-4xl">
+        <aside className="scrollbar-hidden sticky top-16 mr-4 mt-4 h-full min-w-[11rem] overflow-y-scroll sm:min-w-[15rem] sm:pr-10">
+          <h2 className="mb-4 border-b-2 font-heading text-3xl font-bold text-lightText sm:text-4xl">
             Categories
           </h2>
-          <ul className="m-1 font-text text-lg font-medium text-lightText sm:text-xl">
+          <ul className="font-text text-lg font-medium text-lightText sm:text-xl">
             {categories}
           </ul>
         </aside>

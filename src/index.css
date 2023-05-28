@@ -20,24 +20,27 @@
     background-color: hsl(0, 0%, 30%);
   }
 
-  article::-webkit-scrollbar,
-  div::-webkit-scrollbar {
+  article::-webkit-scrollbar {
     width: 0.2em;
   }
 
   article::-webkit-scrollbar-track,
-  div::-webkit-scrollbar-track {
+  .slider-scrollbar::-webkit-scrollbar-track {
     background: hsl(0, 0%, 15%);
   }
 
   article::-webkit-scrollbar-thumb,
-  div::-webkit-scrollbar-thumb {
+  .slider-scrollbar::-webkit-scrollbar-thumb {
     background-color: hsl(0, 0%, 25%);
   }
 
   article::-webkit-scrollbar-thumb:hover,
-  div::-webkit-scrollbar-thumb:hover {
+  .slider-scrollbar::-webkit-scrollbar-thumb:hover {
     background-color: hsl(0, 0%, 30%);
+  }
+  
+  .slider-scrollbar::-webkit-scrollbar {
+    height: 0.3em;
   }
 
   .selected {

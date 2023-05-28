@@ -63,7 +63,7 @@ function Cart({ gamesList }) {
                 {indianRs.format(total).slice(0, -3) + " (" + cart.length + ")"}
               </p>
             </div>
-            <button className="mt-4 w-full border border-darkHover p-2 font-heading text-xl font-bold text-darkHover duration-300 hover:bg-darkHover hover:text-darkBg2">
+            <button className="mt-4 w-full border border-darkHover p-2 font-heading text-xl font-bold text-darkHover duration-300 hover:bg-darkHover hover:text-darkBg2" role="button">
               Place Order
             </button>
           </>

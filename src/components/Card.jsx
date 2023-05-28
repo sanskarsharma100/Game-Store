@@ -5,7 +5,6 @@ import { MainContext } from "../Context/MainContext";
 import heartEmpty from "../assets/heartEmpty.svg";
 import heartFilled from "../assets/heartFilled.svg";
 import { useIsSmall } from "./../Utils/constants";
-import { Link } from "react-router-dom";
 
 function Card({ game, toggleFavourite }) {
   const { isMenuOpen, cart, addToCart } = useContext(MainContext);
@@ -56,7 +55,11 @@ function Card({ game, toggleFavourite }) {
       className="rounded-lg bg-darkBg2 active:scale-150"
     >
       <figure>
-        <img src={game.preview[0]} alt="preview" className="rounded-t-lg" />
+        <img
+          src={game.preview[0]}
+          alt="Game Cover photo"
+          className="rounded-t-lg"
+        />
       </figure>
       <div className="mt-2 p-2 text-lightText">
         <div className="flex-col justify-between">
@@ -74,7 +77,7 @@ function Card({ game, toggleFavourite }) {
               <figure>
                 <img
                   src={game.isFavorite ? heartFilled : heartEmpty}
-                  alt="emptyHeart"
+                  alt="Wishlist Icon"
                   id={game.id}
                   className={`m-2 w-6 select-none duration-300 ${
                     game.isFavorite || `hover:drop-shadow-4xl`
@@ -83,6 +86,7 @@ function Card({ game, toggleFavourite }) {
                 />
               </figure>
               <button
+                role="button"
                 className={`rounded-lg border px-2 py-1 font-medium duration-300 hover:text-darkBg2 ${
                   cart.includes(game.id)
                     ? `border-success text-success hover:bg-success`

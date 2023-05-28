@@ -3,9 +3,6 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      transformOrigin: {
-        center: "50% 50%",
-      },
       boxShadow: {
         darker: "inset 0 -15px 0 hsl(0, 0%, 10%)",
         "5xl": "0 -20px 22px 0 hsl(0, 0%,0%)",
@@ -29,8 +26,8 @@ export default {
         neonPink: "rgb(255, 16, 240)",
         borderColor: "#3c4144",
         borderColorActive: "#788287",
-        semiTransparantDark: "rgba(0, 0, 0, 0.8)",
-        semiDark: "rgba(0, 0, 0, 0.2)",
+        semiDarker: "rgba(0, 0, 0, 0.8)",
+        semiDark: "rgba(0, 0, 0, 0.4)",
         success: "#4CAF50",
         best: "#2E7D32",
         bad: "#FF9800",
