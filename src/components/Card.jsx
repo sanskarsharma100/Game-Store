@@ -56,15 +56,16 @@ function Card({ game, toggleFavourite }) {
     >
       <figure>
         <img
-          src={game.preview[0]}
+          src={game.pictures.banner}
           alt="Game Cover photo"
           className="rounded-t-lg"
+          loading="lazy"
         />
       </figure>
       <div className="mt-2 p-2 text-lightText">
-        <div className="flex-col justify-between">
-          <div className="flex justify-between">
-            <p className="min-h-[4rem] text-xl font-bold">{game.name}</p>
+        <div className="flex-col justify-between ">
+          <div className="flex justify-between min-h-[4rem]">
+            <p className="text-base xs:text-xl font-bold line-clamp-2 h-fit">{game.name}</p>
             <p
               className={`flex max-h-7 items-center rounded-lg px-2 font-semibold ${getRatingColor()}`}
             >
@@ -87,7 +88,7 @@ function Card({ game, toggleFavourite }) {
               </figure>
               <button
                 role="button"
-                className={`rounded-lg border px-2 py-1 font-medium duration-300 hover:text-darkBg2 ${
+                className={`rounded-lg border px-2 py-1 text-sm xs:text-base font-medium duration-300 hover:text-darkBg2 ${
                   cart.includes(game.id)
                     ? `border-success text-success hover:bg-success`
                     : `border-darkHover text-darkHover hover:bg-darkHover`

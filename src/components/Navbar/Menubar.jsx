@@ -10,7 +10,7 @@ function Menubar({ links, showCategory }) {
   const { isMenuOpen, selectedGenre, setGenre, setIsMenuOpen } =
     useContext(MainContext);
   const isSmall = useIsSmall();
-  
+
   useEffect(() => {
     if (!isSmall) {
       setIsMenuOpen(true);
@@ -91,7 +91,7 @@ function Menubar({ links, showCategory }) {
       <NavLink
         to={`/${links.to}`}
         end
-        className={({ isActive }) => isActive ? "activeRoute":''}
+        className={({ isActive }) => (isActive ? "activeRoute" : "")}
       >
         <motion.p variants={textEffect} className="p-2">
           {links.name}
@@ -122,7 +122,7 @@ function Menubar({ links, showCategory }) {
     <motion.div
       animate={isMenuOpen && isSmall ? "open" : "closed"}
       variants={isSmall ? menuSlider : ""}
-      className='scrollbar-hidden absolute z-[5000] h-[93vh] w-2/3 flex-col gap-5 overflow-y-scroll bg-darkBg pb-3 backdrop-blur xs:static xs:h-fit xs:w-fit xs:pb-0'
+      className="scrollbar-hidden absolute z-[5000] h-[93vh] w-2/3 flex-col gap-5 overflow-y-scroll bg-darkBg pb-3 backdrop-blur xs:static xs:h-fit xs:w-fit xs:pb-0"
     >
       <motion.ul
         animate={isMenuOpen ? "open" : "closed"}
@@ -132,8 +132,8 @@ function Menubar({ links, showCategory }) {
         {navLinks}
       </motion.ul>
       {showCategory && isSmall && (
-        <div>
-          <h2 className="mb-2 text-center font-heading text-2xl font-extrabold text-lightText underline">
+        <div className="px-4">
+          <h2 className="mb-2 border-b-2 pb-1 text-center font-heading text-2xl font-extrabold text-lightText">
             Categories
           </h2>
           <motion.ul

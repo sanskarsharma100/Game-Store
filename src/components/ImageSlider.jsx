@@ -2,17 +2,17 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-function ImageSlider({ images }) {
+function ImageSlider({ pictures }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const imgScroll = useRef(null);
 
   function previousSlide() {
-    const newIndex = currentIndex == 0 ? images.length - 1 : currentIndex - 1;
+    const newIndex = currentIndex == 0 ? pictures.compressed.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
     scrollToIndex(newIndex);
   }
   function nextSlide() {
-    const newIndex = currentIndex == images.length - 1 ? 0 : currentIndex + 1;
+    const newIndex = currentIndex == pictures.compressed.length - 1 ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
     scrollToIndex(newIndex);
   }
@@ -31,7 +31,7 @@ function ImageSlider({ images }) {
     scrollToIndex(index);
   }
 
-  const dots = images.map((img, index) => (
+  const dots = pictures.compressed.map((img, index) => (
     <button
       role="button"
       key={img + index}
@@ -42,7 +42,7 @@ function ImageSlider({ images }) {
     ></button>
   ));
 
-  const slider = images.map((img, index) => (
+  const slider = pictures.original.map((img, index) => (
     <React.Fragment key={index + img}>
       <figure
         style={{
@@ -54,7 +54,7 @@ function ImageSlider({ images }) {
     </React.Fragment>
   ));
 
-  const imgList = images.map((img, index) => (
+  const imgList = pictures.compressed.map((img, index) => (
     <img
       src={img}
       alt="Game Photo"
@@ -63,6 +63,7 @@ function ImageSlider({ images }) {
         index == currentIndex && `border-2 border-neonPink`
       }`}
       onClick={() => slideToImage(index)}
+      loading="lazy"
     />
   ));
 
@@ -99,7 +100,7 @@ function ImageSlider({ images }) {
 }
 
 ImageSlider.propTypes = {
-  images: PropTypes.array,
+  pictures: PropTypes.object
 };
 
 export default ImageSlider;

@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
-import PropTypes from "prop-types";
+import PropTypes, { func } from "prop-types";
 import Card from "./Card";
 import { MainContext } from "../Context/MainContext";
 import { useContext, useState } from "react";
 import genres from "./../Utils/genres";
 import { useIsSmall } from "../Utils/constants";
 import { Link } from "react-router-dom";
+import SortBy from "./SortBy";
 
 function Home({ gamesList, toggleFavourite }) {
   const isSmall = useIsSmall();
@@ -18,6 +19,7 @@ function Home({ gamesList, toggleFavourite }) {
   ];
   const { selectedGenre, setGenre } = useContext(MainContext);
   const [sortBy, setSortBy] = useState(sortByValues[0].value);
+  const [showSortByMenu, setShowSortByMenu] = useState(false);
 
   const filteredGames =
     selectedGenre != ""
@@ -34,8 +36,13 @@ function Home({ gamesList, toggleFavourite }) {
     filteredGames.sort((game1, game2) => game2.rating - game1.rating);
   }
 
+  function toggleSortByMenu() {
+    setShowSortByMenu(!showSortByMenu);
+  }
+
   function handleSortBy(e) {
     setSortBy(e.target.textContent);
+    toggleSortByMenu();
   }
 
   const gamesCards = filteredGames.map((game) => (
@@ -43,22 +50,6 @@ function Home({ gamesList, toggleFavourite }) {
       <Card game={game} toggleFavourite={toggleFavourite} />
     </Link>
   ));
-
-  const sortByOptions = sortByValues.map((item) => (
-    <div
-      key={item.id}
-      className="p-[3%] hover:cursor-pointer hover:text-darkHover"
-      onClick={handleSortBy}
-    >
-      {item.value}
-    </div>
-  ));
-
-  const optionsEffect = {
-    optionsHover: {
-      display: "block",
-    },
-  };
 
   const textEffect = {
     textHover: {
@@ -71,8 +62,6 @@ function Home({ gamesList, toggleFavourite }) {
     },
   };
 
-  console.log('genres["openWorld"]', genres["openWorld"]);
-
   const categories = Object.keys(genres).map((item, i) => (
     <motion.li
       key={i + item}
@@ -83,20 +72,20 @@ function Home({ gamesList, toggleFavourite }) {
       }`}
       onClick={() => setGenre(genres[item])}
     >
-      <motion.p variants={textEffect} className="px-2 py-1">
+      <motion.p variants={textEffect} className="mb-1 px-2 py-0.5">
         {genres[item]}
       </motion.p>
     </motion.li>
   ));
 
   return (
-    <div className="relative min-h-screen w-full gap-2 bg-darkBg p-4 text-lightText xs:flex">
+    <div className="relative min-h-screen w-full gap-2 bg-darkBg px-4 py-2 text-lightText xs:flex">
       {!isSmall && (
-        <aside className="scrollbar-hidden sticky top-16 mr-4 mt-4 h-full min-w-[11rem] overflow-y-scroll sm:min-w-[15rem] sm:pr-10">
-          <h2 className="mb-4 border-b-2 font-heading text-3xl font-bold text-lightText sm:text-4xl">
+        <aside className="scrollbar-hidden sticky top-16 mr-4 mt-8 h-full min-w-fit overflow-y-scroll sm:pr-2">
+          <h2 className="mb-2 border-b-2 font-heading text-2xl font-bold text-lightText sm:mb-4 sm:text-3xl">
             Categories
           </h2>
-          <ul className="font-text text-lg font-medium text-lightText sm:text-xl">
+          <ul className="font-text text-base font-medium text-lightText sm:text-lg">
             {categories}
           </ul>
         </aside>
@@ -105,21 +94,13 @@ function Home({ gamesList, toggleFavourite }) {
         <h1 className="mb-2 font-heading text-4xl font-black xs:text-5xl ss:text-6xl sm:text-7xl">
           {selectedGenre || "All Games"}
         </h1>
-        <div className="mb-4 flex max-w-xs items-center gap-2 font-text">
-          <span className="whitespace-nowrap">Sort By:</span>
-          <motion.div whileHover="optionsHover" className="relative w-full">
-            <motion.div className="rounded-lg bg-darkBg2 p-[3%]">
-              {sortBy}
-            </motion.div>
-            <motion.div
-              initial={{ display: "none" }}
-              variants={optionsEffect}
-              className="absolute z-[8000] w-full rounded-lg bg-darkBg2"
-            >
-              {sortByOptions}
-            </motion.div>
-          </motion.div>
-        </div>
+        <SortBy
+          sortBy={sortBy}
+          sortByValues={sortByValues}
+          showSortByMenu={showSortByMenu}
+          handleSortBy={handleSortBy}
+          toggleSortByMenu={toggleSortByMenu}
+        />
         {!gamesCards.length ? (
           <div className="flex w-full justify-center p-10">
             <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]">
@@ -127,7 +108,7 @@ function Home({ gamesList, toggleFavourite }) {
             </div>
           </div>
         ) : (
-          <div className="grid place-items-center items-center gap-4 overflow-visible font-text sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid place-items-center items-center gap-4 overflow-visible font-text ss:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {gamesCards}
           </div>
         )}

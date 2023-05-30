@@ -38,7 +38,7 @@ function GameDetail({ gamesList, toggleFavourite }) {
       </div>
       <div className="justify-between gap-5 md:flex">
         <section className="mx-auto my-0 overflow-hidden md:min-w-[60%]">
-          <ImageSlider images={game.preview} />
+          <ImageSlider pictures={game.pictures} />
         </section>
         <div className="flex flex-col-reverse pt-3 md:flex-col md:pt-0">
           <div className="mt-3 rounded-lg bg-darkBg2 p-4 md:mb-4 md:mt-0">

@@ -22,9 +22,10 @@ function Cart({ gamesList }) {
           <div className="flex items-center gap-2">
             <figure>
               <img
-                src={game.preview[0]}
-                alt="preview"
+                src={game.pictures[0]}
+                alt="Picture of Game"
                 className="hidden max-w-[10rem] xs:block"
+                loading="lazy"
               />
             </figure>
             <p>{game.name}</p>

@@ -47,10 +47,10 @@
     background-color: #CE93D8;
     color: #1e1e1e;
     border-radius: 0.5rem;
-    background-image: url('./assets/cross-dark.svg');
+    /* background-image: url('./assets/cross-dark.svg');
     background-size: 25px;
     background-repeat: no-repeat;
-    background-position: 2% 50%;
+    background-position: 2% 50%; */
     transition: background-color 300ms linear;
   }
 
