@@ -1,21 +1,17 @@
 import { PropTypes } from "prop-types";
 import { useParams } from "react-router-dom";
-import ImageSlider from "./ImageSlider";
+import ImageSlider from "../components/ImageSlider";
 import heartEmpty from "../assets/heartEmpty.svg";
 import heartFilled from "../assets/heartFilled.svg";
 import { useContext } from "react";
 import { motion } from "framer-motion";
 import { MainContext } from "../Context/MainContext";
+import { numberToRupees } from "../Utils/utils";
 
 function GameDetail({ gamesList, toggleFavourite }) {
   const params = useParams();
   const game = gamesList[params.id - 1];
   const { cart, addToCart } = useContext(MainContext);
-
-  let indianRs = new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-  });
 
   const description = game.description.map((desc) => (
     <p key={desc} className="mt-2 leading-5">
@@ -52,10 +48,8 @@ function GameDetail({ gamesList, toggleFavourite }) {
             </motion.article>
           </div>
           <div className="flex items-center gap-2">
-            <div className="flex w-full items-center justify-between rounded-lg bg-darkBg2 px-4 py-2 font-heading text-base xs:text-xl flex-wrap">
-              <p className="font-bold">
-                {indianRs.format(game.price).slice(0, -3)}
-              </p>
+            <div className="flex w-full flex-wrap items-center justify-between rounded-lg bg-darkBg2 px-4 py-2 font-heading text-base xs:text-xl">
+              <p className="font-bold">{numberToRupees(game.price)}</p>
               <button
                 role="button"
                 className={`rounded-lg px-2 py-1 font-medium duration-300 ${

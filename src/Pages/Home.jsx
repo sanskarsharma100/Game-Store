@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
-import PropTypes, { func } from "prop-types";
-import Card from "./Card";
+import PropTypes from "prop-types";
+import Card from "../components/Card";
 import { MainContext } from "../Context/MainContext";
 import { useContext, useState } from "react";
-import genres from "./../Utils/genres";
+import genres from "../Utils/genres";
 import { useIsSmall } from "../Utils/constants";
 import { Link } from "react-router-dom";
-import SortBy from "./SortBy";
+import SortBy from "../components/SortBy";
+import Categories from "./../components/Categories";
 
 function Home({ gamesList, toggleFavourite }) {
   const isSmall = useIsSmall();
@@ -68,7 +69,7 @@ function Home({ gamesList, toggleFavourite }) {
       whileHover={genres[item] != selectedGenre ? "textHover" : "x:0"}
       whileTap="textTap"
       className={`hover:text-darkHover ${
-        genres[item] == selectedGenre && `selected bg-[98%_50%]`
+        genres[item] == selectedGenre && `selected`
       }`}
       onClick={() => setGenre(genres[item])}
     >
@@ -82,12 +83,7 @@ function Home({ gamesList, toggleFavourite }) {
     <div className="relative min-h-screen w-full gap-2 bg-darkBg px-4 py-2 text-lightText xs:flex">
       {!isSmall && (
         <aside className="scrollbar-hidden sticky top-16 mr-4 mt-8 h-full min-w-fit overflow-y-scroll sm:pr-2">
-          <h2 className="mb-2 border-b-2 font-heading text-2xl font-bold text-lightText sm:mb-4 sm:text-3xl">
-            Categories
-          </h2>
-          <ul className="font-text text-base font-medium text-lightText sm:text-lg">
-            {categories}
-          </ul>
+          <Categories textEffect={textEffect} />
         </aside>
       )}
       <div>

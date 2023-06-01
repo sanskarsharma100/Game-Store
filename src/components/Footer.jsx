@@ -42,14 +42,20 @@ function Footer() {
     </li>
   ));
 
-  const socials = socialLinks.map(link => (
-    <li key={link.id}><img src={link.url} alt={link.alt} className="w-7 hover:cursor-pointer" /></li>
-  ))
+  const socials = socialLinks.map((link) => (
+    <li key={link.id}>
+      <img src={link.url} alt={link.alt} className="w-7 hover:cursor-pointer" />
+    </li>
+  ));
 
   return (
-    <footer className="flex bg-darkBg2 p-4 text-lightText flex-col xs:flex-row gap-4">
-      <img src={StoreLogo} alt="Game Store Logo" className="w-40 xs:h-16 xs:w-auto m-auto" />
-      <div className="flex w-full justify-evenly gap-2 flex-wrap">
+    <footer className="flex flex-col gap-4 bg-darkBg2 p-4 text-lightText xs:flex-row">
+      <img
+        src={StoreLogo}
+        alt="Game Store Logo"
+        className="m-auto w-40 xs:h-16 xs:w-auto"
+      />
+      <div className="flex w-full flex-wrap justify-evenly gap-2">
         <div>
           <h4 className="font-heading font-semibold">Company</h4>
           <ul className="font-text text-sm font-light">{companyItems}</ul>
@@ -59,11 +65,11 @@ function Footer() {
           <ul className="font-text text-sm font-light">{productItems}</ul>
         </div>
       </div>
-        <div>
-          <ul className="flex xs:flex-col justify-evenly xs:justify-between h-full">
+      <div>
+        <ul className="flex h-full justify-evenly xs:flex-col xs:justify-between">
           {socials}
-          </ul>
-        </div>
+        </ul>
+      </div>
     </footer>
   );
 }

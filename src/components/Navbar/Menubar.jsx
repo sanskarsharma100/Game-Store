@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { MainContext } from "../../Context/MainContext";
 import genres from "./../../Utils/genres";
 import { useIsSmall } from "./../../Utils/constants";
+import Categories from "./../Categories";
 
 function Menubar({ links, showCategory }) {
   const { isMenuOpen, selectedGenre, setGenre, setIsMenuOpen } =
@@ -100,23 +101,23 @@ function Menubar({ links, showCategory }) {
     </motion.li>
   ));
 
-  const categories = Object.keys(genres).map((item, i) => (
-    <motion.li
-      key={i}
-      whileHover={genres[item] != selectedGenre && "textHover"}
-      whileTap="textTap"
-      animate={isMenuOpen ? "open" : "closed"}
-      variants={menuItemEffects}
-      className={`m-2 text-center hover:text-darkHover ${
-        genres[item] == selectedGenre && `selected`
-      }`}
-      onClick={() => setGenre(genres[item])}
-    >
-      <motion.p variants={textEffect} className="p-2">
-        {genres[item]}
-      </motion.p>
-    </motion.li>
-  ));
+  // const categories = Object.keys(genres).map((item, i) => (
+  //   <motion.li
+  //     key={i}
+  //     whileHover={genres[item] != selectedGenre && "textHover"}
+  //     whileTap="textTap"
+  //     animate={isMenuOpen ? "open" : "closed"}
+  //     variants={menuItemEffects}
+  //     className={`m-2 text-center hover:text-darkHover ${
+  //       genres[item] == selectedGenre && `selected`
+  //     }`}
+  //     onClick={() => setGenre(genres[item])}
+  //   >
+  //     <motion.p variants={textEffect} className="p-2">
+  //       {genres[item]}
+  //     </motion.p>
+  //   </motion.li>
+  // ));
 
   return (
     <motion.div
@@ -133,16 +134,11 @@ function Menubar({ links, showCategory }) {
       </motion.ul>
       {showCategory && isSmall && (
         <div className="px-4">
-          <h2 className="mb-2 border-b-2 pb-1 text-center font-heading text-2xl font-extrabold text-lightText">
-            Categories
-          </h2>
-          <motion.ul
-            animate={isMenuOpen ? "open" : "closed"}
-            variants={ULlist}
-            className="overflow-hidden font-text text-lg font-bold text-lightText xs:flex xs:flex-col xs:align-middle"
-          >
-            {categories}
-          </motion.ul>
+          <Categories
+            ULlist={ULlist}
+            menuItemEffects={menuItemEffects}
+            textEffect={textEffect}
+          />
         </div>
       )}
     </motion.div>

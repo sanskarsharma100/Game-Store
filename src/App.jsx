@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import games from "./Utils/games";
-import Intro from "./components/Intro";
-import Home from "./components/Home";
-import Wishlist from "./components/Wishlist";
-import Cart from "./components/Cart";
+import Home from "./Pages/Home";
+import Wishlist from "./Pages/Wishlist";
+import Cart from "./Pages/Cart";
 import Navbar from "./components/Navbar/Navbar";
 import { useContext } from "react";
 import { MainContext } from "./Context/MainContext";
-import GameDetail from "./components/GameDetail";
+import GameDetail from "./Pages/GameDetail";
 import Footer from "./components/Footer";
+import Intro from "./Pages/Intro";
 
 function App() {
   const [gamesList, setGamesList] = useState(games);

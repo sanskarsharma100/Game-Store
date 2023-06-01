@@ -1,11 +1,14 @@
 import { PropTypes } from "prop-types";
-import Card from "./Card";
+import Card from "../components/Card";
+import { Link } from "react-router-dom";
 
 function Wishlist({ gamesList, toggleFavourite }) {
   const filteredGames = gamesList.filter((game) => game.isFavorite);
 
   const gamesCards = filteredGames.map((game) => (
-    <Card key={game.id} game={game} toggleFavourite={toggleFavourite} />
+    <Link key={game.id} to={`/store/${game.id}`}>
+      <Card key={game.id} game={game} toggleFavourite={toggleFavourite} />
+    </Link>
   ));
 
   return (

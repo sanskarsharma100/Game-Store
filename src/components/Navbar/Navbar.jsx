@@ -19,10 +19,14 @@ function Navbar() {
   return (
     <header className="sticky top-0 z-50">
       <nav className="w-full bg-darkBg xs:px-4">
-        <div className="relative xs:flex xs:justify-between m-auto px-2">
+        <div className="relative m-auto px-2 xs:flex xs:justify-between">
           <div className="relative z-[9999] flex h-16 justify-center bg-darkBg">
             <div className="m-auto" role="banner">
-              <img src={StoreLogo} alt="Game Store Logo" className="m-auto w-40"/>
+              <img
+                src={StoreLogo}
+                alt="Game Store Logo"
+                className="m-auto w-40"
+              />
             </div>
             <div
               className="absolute right-0 my-auto mr-2 translate-y-2/4 cursor-pointer space-y-1.5 xs:hidden"

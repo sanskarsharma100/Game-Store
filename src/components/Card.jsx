@@ -5,15 +5,11 @@ import { MainContext } from "../Context/MainContext";
 import heartEmpty from "../assets/heartEmpty.svg";
 import heartFilled from "../assets/heartFilled.svg";
 import { useIsSmall } from "./../Utils/constants";
+import { numberToRupees } from "../Utils/utils";
 
 function Card({ game, toggleFavourite }) {
   const { isMenuOpen, cart, addToCart } = useContext(MainContext);
   const isSmall = useIsSmall();
-
-  let indianRs = new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-  });
 
   function getRatingColor() {
     if (game.rating > 4.1) {
@@ -64,9 +60,10 @@ function Card({ game, toggleFavourite }) {
       </figure>
       <div className="mt-2 p-2 text-lightText">
         <div className="flex-col justify-between ">
-          <div className="flex justify-between min-h-[4rem]">
-            {/* <p className="text-base xs:text-xl font-bold line-clamp-2 h-fit">{game.name}</p> */}
-            <p className="text-dynamic font-bold line-clamp-2 h-fit">{game.name}</p>
+          <div className="flex min-h-[4rem] justify-between">
+            <p className="line-clamp-2 h-fit text-dynamic font-bold">
+              {game.name}
+            </p>
             <p
               className={`flex max-h-7 items-center rounded-lg px-2 font-semibold ${getRatingColor()}`}
             >
@@ -74,7 +71,7 @@ function Card({ game, toggleFavourite }) {
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-between">
-            <span>{indianRs.format(game.price).slice(0, -3)}</span>
+            <span>{numberToRupees(game.price)}</span>
             <div className="flex items-center gap-1">
               <figure>
                 <img
@@ -89,7 +86,7 @@ function Card({ game, toggleFavourite }) {
               </figure>
               <button
                 role="button"
-                className={`rounded-lg border px-2 py-1 text-sm xs:text-base font-medium duration-300 hover:text-darkBg2 ${
+                className={`rounded-lg border px-2 py-1 text-sm font-medium duration-300 hover:text-darkBg2 xs:text-base ${
                   cart.includes(game.id)
                     ? `border-success text-success hover:bg-success`
                     : `border-darkHover text-darkHover hover:bg-darkHover`
