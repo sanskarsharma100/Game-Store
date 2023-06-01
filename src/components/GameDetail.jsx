@@ -52,7 +52,7 @@ function GameDetail({ gamesList, toggleFavourite }) {
             </motion.article>
           </div>
           <div className="flex items-center gap-2">
-            <div className="flex w-full items-center justify-between rounded-lg bg-darkBg2 px-4 py-2 font-heading text-lg xs:text-xl">
+            <div className="flex w-full items-center justify-between rounded-lg bg-darkBg2 px-4 py-2 font-heading text-base xs:text-xl flex-wrap">
               <p className="font-bold">
                 {indianRs.format(game.price).slice(0, -3)}
               </p>

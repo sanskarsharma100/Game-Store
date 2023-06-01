@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontSize: {
+        dynamic: "clamp(1rem, 5vw, 1.115rem)",
+      },
       boxShadow: {
         darker: "inset 0 -15px 0 hsl(0, 0%, 10%)",
         "5xl": "0 -20px 22px 0 hsl(0, 0%,0%)",

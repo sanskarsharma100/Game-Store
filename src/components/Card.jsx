@@ -65,7 +65,8 @@ function Card({ game, toggleFavourite }) {
       <div className="mt-2 p-2 text-lightText">
         <div className="flex-col justify-between ">
           <div className="flex justify-between min-h-[4rem]">
-            <p className="text-base xs:text-xl font-bold line-clamp-2 h-fit">{game.name}</p>
+            {/* <p className="text-base xs:text-xl font-bold line-clamp-2 h-fit">{game.name}</p> */}
+            <p className="text-dynamic font-bold line-clamp-2 h-fit">{game.name}</p>
             <p
               className={`flex max-h-7 items-center rounded-lg px-2 font-semibold ${getRatingColor()}`}
             >
