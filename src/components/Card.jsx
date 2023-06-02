@@ -7,7 +7,7 @@ import heartFilled from "../assets/heartFilled.svg";
 import { useIsSmall } from "./../Utils/constants";
 import { numberToRupees } from "../Utils/utils";
 
-function Card({ game, toggleFavourite }) {
+const Card = ({ game, toggleFavourite }) => {
   const { isMenuOpen, cart, addToCart } = useContext(MainContext);
   const isSmall = useIsSmall();
 
@@ -104,7 +104,7 @@ function Card({ game, toggleFavourite }) {
       </div>
     </motion.section>
   );
-}
+};
 
 Card.propTypes = {
   game: PropTypes.object,

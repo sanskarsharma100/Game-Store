@@ -3,13 +3,11 @@ import { motion } from "framer-motion";
 import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { MainContext } from "../../Context/MainContext";
-import genres from "./../../Utils/genres";
 import { useIsSmall } from "./../../Utils/constants";
 import Categories from "./../Categories";
 
 function Menubar({ links, showCategory }) {
-  const { isMenuOpen, selectedGenre, setGenre, setIsMenuOpen } =
-    useContext(MainContext);
+  const { isMenuOpen, setIsMenuOpen } = useContext(MainContext);
   const isSmall = useIsSmall();
 
   useEffect(() => {
@@ -18,7 +16,7 @@ function Menubar({ links, showCategory }) {
     } else {
       setIsMenuOpen(false);
     }
-  }, [isSmall]);
+  }, [isSmall, setIsMenuOpen]);
 
   const menuSlider = {
     open: {
@@ -100,24 +98,6 @@ function Menubar({ links, showCategory }) {
       </NavLink>
     </motion.li>
   ));
-
-  // const categories = Object.keys(genres).map((item, i) => (
-  //   <motion.li
-  //     key={i}
-  //     whileHover={genres[item] != selectedGenre && "textHover"}
-  //     whileTap="textTap"
-  //     animate={isMenuOpen ? "open" : "closed"}
-  //     variants={menuItemEffects}
-  //     className={`m-2 text-center hover:text-darkHover ${
-  //       genres[item] == selectedGenre && `selected`
-  //     }`}
-  //     onClick={() => setGenre(genres[item])}
-  //   >
-  //     <motion.p variants={textEffect} className="p-2">
-  //       {genres[item]}
-  //     </motion.p>
-  //   </motion.li>
-  // ));
 
   return (
     <motion.div

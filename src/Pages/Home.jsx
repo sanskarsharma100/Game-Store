@@ -1,9 +1,7 @@
-import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import Card from "../components/Card";
 import { MainContext } from "../Context/MainContext";
 import { useContext, useState } from "react";
-import genres from "../Utils/genres";
 import { useIsSmall } from "../Utils/constants";
 import { Link } from "react-router-dom";
 import SortBy from "../components/SortBy";
@@ -18,7 +16,7 @@ function Home({ gamesList, toggleFavourite }) {
     { id: 3, value: "Price(Lowest First)" },
     { id: 4, value: "Rating" },
   ];
-  const { selectedGenre, setGenre } = useContext(MainContext);
+  const { selectedGenre } = useContext(MainContext);
   const [sortBy, setSortBy] = useState(sortByValues[0].value);
   const [showSortByMenu, setShowSortByMenu] = useState(false);
 
@@ -62,22 +60,6 @@ function Home({ gamesList, toggleFavourite }) {
       cursor: "pointer",
     },
   };
-
-  const categories = Object.keys(genres).map((item, i) => (
-    <motion.li
-      key={i + item}
-      whileHover={genres[item] != selectedGenre ? "textHover" : "x:0"}
-      whileTap="textTap"
-      className={`hover:text-darkHover ${
-        genres[item] == selectedGenre && `selected`
-      }`}
-      onClick={() => setGenre(genres[item])}
-    >
-      <motion.p variants={textEffect} className="mb-1 px-2 py-0.5">
-        {genres[item]}
-      </motion.p>
-    </motion.li>
-  ));
 
   return (
     <div className="relative min-h-screen w-full gap-2 bg-darkBg px-4 py-2 text-lightText xs:flex">
