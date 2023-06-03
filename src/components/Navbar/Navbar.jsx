@@ -4,7 +4,7 @@ import { ReactComponent as CrossBtn } from "../../assets/cross.svg";
 import { MainContext } from "../../Context/MainContext";
 import Menubar from "./Menubar";
 import StoreLogo from "../../assets/store-logo.png";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const { isMenuOpen, toggleMenu } = useContext(MainContext);
@@ -20,13 +20,15 @@ function Navbar() {
     <header className="sticky top-0 z-50">
       <nav className="w-full bg-darkBg xs:px-4">
         <div className="relative m-auto px-2 xs:flex xs:justify-between">
-          <div className="relative z-[9999] flex h-16 justify-center bg-darkBg">
+          <div className="relative z-[9999] flex h-16 justify-center">
             <div className="m-auto" role="banner">
-              <img
-                src={StoreLogo}
-                alt="Game Store Logo"
-                className="m-auto w-40"
-              />
+              <Link to={`/store`}>
+                <img
+                  src={StoreLogo}
+                  alt="Game Store Logo"
+                  className="m-auto w-40"
+                />
+              </Link>
             </div>
             <div
               className="absolute right-0 my-auto mr-2 translate-y-2/4 cursor-pointer space-y-1.5 xs:hidden"

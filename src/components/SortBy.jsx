@@ -35,7 +35,7 @@ function SortBy({
   ));
 
   return (
-    <div className="mb-4 flex max-w-xs items-center gap-2 font-text">
+    <div className="font-content mb-4 flex max-w-xs items-center gap-2">
       <span className="whitespace-nowrap">Sort By:</span>
       <div className="relative w-full">
         <button

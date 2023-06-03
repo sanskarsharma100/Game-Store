@@ -49,7 +49,7 @@ function Footer() {
   ));
 
   return (
-    <footer className="flex flex-col gap-4 bg-darkBg2 p-4 text-lightText xs:flex-row">
+    <footer className="flex w-full flex-col gap-4 bg-darkBg2 p-4 text-lightText xs:flex-row">
       <img
         src={StoreLogo}
         alt="Game Store Logo"
@@ -58,11 +58,15 @@ function Footer() {
       <div className="flex w-full flex-wrap justify-evenly gap-2">
         <div>
           <h4 className="font-heading font-semibold">Company</h4>
-          <ul className="font-text text-sm font-light">{companyItems}</ul>
+          <ul className="font-content text-sm font-light text-zinc-400">
+            {companyItems}
+          </ul>
         </div>
         <div>
           <h4 className="font-heading font-semibold">Product</h4>
-          <ul className="font-text text-sm font-light">{productItems}</ul>
+          <ul className="font-content text-sm font-light text-zinc-400">
+            {productItems}
+          </ul>
         </div>
       </div>
       <div>

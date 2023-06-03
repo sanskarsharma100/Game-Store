@@ -108,7 +108,7 @@ function Menubar({ links, showCategory }) {
       <motion.ul
         animate={isMenuOpen ? "open" : "closed"}
         variants={ULlist}
-        className="font-text text-lg font-bold text-lightText xs:flex xs:align-middle"
+        className="font-content text-lg font-bold text-lightText xs:flex xs:align-middle"
       >
         {navLinks}
       </motion.ul>

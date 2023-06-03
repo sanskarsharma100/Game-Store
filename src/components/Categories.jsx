@@ -33,7 +33,7 @@ function Categories({ ULlist, menuItemEffects, textEffect }) {
       <motion.ul
         animate={isMenuOpen ? "open" : "closed"}
         variants={ULlist}
-        className="overflow-hidden font-text text-lg font-bold text-lightText xs:text-base xs:font-medium sm:text-lg"
+        className="font-content overflow-hidden text-lg font-bold text-lightText xs:text-base xs:font-medium sm:text-lg"
       >
         {categories}
       </motion.ul>

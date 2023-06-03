@@ -7,7 +7,7 @@ import Cart from "./Pages/Cart";
 import Navbar from "./components/Navbar/Navbar";
 import { useContext } from "react";
 import { MainContext } from "./Context/MainContext";
-import GameDetail from "./Pages/GameDetail";
+import GameDetail from "./Pages/GameDetail/GameDetail";
 import Footer from "./components/Footer";
 import Intro from "./Pages/Intro";
 
@@ -29,7 +29,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className="bg-darkBg pb-16">
+      <main className="bg-darkBg">
         <div
           className={`${
             !isMenuOpen && `hidden`

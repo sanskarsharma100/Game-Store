@@ -41,7 +41,7 @@ function Cart({ gamesList }) {
   });
 
   return (
-    <div className="bg-darkBg">
+    <div className="bg-blackGradient pb-20">
       <div
         className={`m-auto min-h-screen p-4 text-lightText ${
           cart.length ? "max-w-screen-sm" : ""
