@@ -18,13 +18,13 @@ function GameDetail({ gamesList, toggleFavourite }) {
     <div className="bg-black pb-20">
       <div
         style={{
-          background: `linear-gradient(0deg, #000 6%, rgba(0,0,0,0.7) 85%),
+          background: `linear-gradient(0deg, #000 0%, rgba(0,0,0,0.7) 99%),
           url(${game.pictures.banner})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundPosition: "top",
+          backgroundPosition: "center",
         }}
-        className="absolute h-96 w-screen"
+        className="absolute h-[40rem] w-screen"
       ></div>
       <div className="relative min-h-screen w-full gap-2 px-4 py-4 text-lightText lg:px-10">
         <div className="mb-3 flex flex-col ">

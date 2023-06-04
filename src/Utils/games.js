@@ -41,7 +41,8 @@ const games = [
       },
     },
     pictures: {
-      banner: "https://cdn.akamai.steamstatic.com/steam/apps/271590/ss_43e9c59d968e7f99f1eef065af85b3e542100366.600x338.jpg",
+      banner:
+        "https://cdn.akamai.steamstatic.com/steam/apps/271590/ss_43e9c59d968e7f99f1eef065af85b3e542100366.600x338.jpg",
       original: [
         "https://cdn.akamai.steamstatic.com/steam/apps/271590/ss_43e9c59d968e7f99f1eef065af85b3e542100366.1920x1080.jpg",
         "https://cdn.akamai.steamstatic.com/steam/apps/271590/ss_cd721eb1856f0dd3b820e4e998c3b5fe7e7c9b4e.1920x1080.jpg",
@@ -98,7 +99,8 @@ const games = [
       },
     },
     pictures: {
-      banner: "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_1da0673f82eccc3c9d222237dec40e36bf10eef3.600x338.jpg",
+      banner:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_1da0673f82eccc3c9d222237dec40e36bf10eef3.600x338.jpg",
       original: [
         "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_1da0673f82eccc3c9d222237dec40e36bf10eef3.1920x1080.jpg",
         "https://cdn.akamai.steamstatic.com/steam/apps/1551360/ss_78e4f63e05d50e59b9966ba8da9a53dbf84fd8f4.1920x1080.jpg",
@@ -153,7 +155,8 @@ const games = [
       },
     },
     pictures: {
-      banner: "https://cdn.akamai.steamstatic.com/steam/apps/1174180/ss_bac60bacbf5da8945103648c08d27d5e202444ca.600x338.jpg",
+      banner:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1174180/ss_bac60bacbf5da8945103648c08d27d5e202444ca.600x338.jpg",
       original: [
         "https://cdn.akamai.steamstatic.com/steam/apps/1174180/ss_bac60bacbf5da8945103648c08d27d5e202444ca.1920x1080.jpg",
         "https://cdn.akamai.steamstatic.com/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.1920x1080.jpg",
@@ -212,7 +215,8 @@ const games = [
       },
     },
     pictures: {
-      banner: "https://cdn.akamai.steamstatic.com/steam/apps/1245620/ss_e80a907c2c43337e53316c71555c3c3035a1343e.600x338.jpg",
+      banner:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1245620/ss_e80a907c2c43337e53316c71555c3c3035a1343e.600x338.jpg",
       original: [
         "https://cdn.akamai.steamstatic.com/steam/apps/1245620/ss_e80a907c2c43337e53316c71555c3c3035a1343e.1920x1080.jpg",
         "https://cdn.akamai.steamstatic.com/steam/apps/1245620/ss_b70e156adf9e40aed24c10fb352b7813586e7290.1920x1080.jpg",
@@ -269,7 +273,8 @@ const games = [
       },
     },
     pictures: {
-      banner: "https://cdn.akamai.steamstatic.com/steam/apps/1091500/ss_526123764d1c628caa1eb62c596f1b732f416c8c.600x338.jpg",
+      banner:
+        "https://cdn.akamai.steamstatic.com/steam/apps/1091500/ss_526123764d1c628caa1eb62c596f1b732f416c8c.600x338.jpg",
       original: [
         "https://cdn.akamai.steamstatic.com/steam/apps/1091500/ss_526123764d1c628caa1eb62c596f1b732f416c8c.1920x1080.jpg",
         "https://cdn.akamai.steamstatic.com/steam/apps/1091500/ss_0002f18563d313bdd1d82c725d411408ebf762b0.1920x1080.jpg",
@@ -332,7 +337,8 @@ const games = [
       },
     },
     pictures: {
-      banner: "https://cdn.cloudflare.steamstatic.com/steam/apps/377160/ss_910437ac708aed7c028f6e43a6224c633d086b0a.600x338.jpg",
+      banner:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/377160/ss_910437ac708aed7c028f6e43a6224c633d086b0a.600x338.jpg",
       original: [
         "https://cdn.cloudflare.steamstatic.com/steam/apps/377160/ss_910437ac708aed7c028f6e43a6224c633d086b0a.1920x1080.jpg",
         "https://cdn.cloudflare.steamstatic.com/steam/apps/377160/ss_c310f858e6a7b02ffa21db984afb0dd1b24c1423.1920x1080.jpg",
@@ -401,7 +407,8 @@ const games = [
       },
     },
     pictures: {
-      banner: "https://cdn.cloudflare.steamstatic.com/steam/apps/412020/ss_f0297eacbfb4266f311a8cb4137e4ef8b7cdd00b.600x338.jpg",
+      banner:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/412020/ss_f0297eacbfb4266f311a8cb4137e4ef8b7cdd00b.600x338.jpg",
       original: [
         "https://cdn.cloudflare.steamstatic.com/steam/apps/412020/ss_f0297eacbfb4266f311a8cb4137e4ef8b7cdd00b.1920x1080.jpg",
         "https://cdn.cloudflare.steamstatic.com/steam/apps/412020/ss_bd875dbf865e70cda73a7cd6b132cadacfdb768b.1920x1080.jpg",
@@ -467,7 +474,8 @@ const games = [
       },
     },
     pictures: {
-      banner: "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_dc33eb233555c13fce939ccaac667bc54e3c4a27.600x338.jpg",
+      banner:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_dc33eb233555c13fce939ccaac667bc54e3c4a27.600x338.jpg",
       original: [
         "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_dc33eb233555c13fce939ccaac667bc54e3c4a27.1920x1080.jpg",
         "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_908485cbb1401b1ebf42e3d21a860ddc53517b08.1920x1080.jpg",
@@ -532,7 +540,8 @@ const games = [
       },
     },
     pictures: {
-      banner: "https://cdn.cloudflare.steamstatic.com/steam/apps/1811260/ss_ab486c0f1c8e8a936b2fbf1dbd953e810be81697.600x338.jpg",
+      banner:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/1811260/ss_ab486c0f1c8e8a936b2fbf1dbd953e810be81697.600x338.jpg",
       original: [
         "https://cdn.cloudflare.steamstatic.com/steam/apps/1811260/ss_ab486c0f1c8e8a936b2fbf1dbd953e810be81697.1920x1080.jpg",
         "https://cdn.cloudflare.steamstatic.com/steam/apps/1811260/ss_3e2c3c34a0407eb599ccfc0072ee030ee45a6cfc.1920x1080.jpg",
@@ -601,7 +610,8 @@ const games = [
       },
     },
     pictures: {
-      banner: "https://cdn.cloudflare.steamstatic.com/steam/apps/730/ss_60b4f959497899515f46012df805b0006ef21af6.600x338.jpg",
+      banner:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/730/ss_60b4f959497899515f46012df805b0006ef21af6.600x338.jpg",
       original: [
         "https://cdn.cloudflare.steamstatic.com/steam/apps/730/ss_60b4f959497899515f46012df805b0006ef21af6.1920x1080.jpg",
         "https://cdn.cloudflare.steamstatic.com/steam/apps/730/ss_118cb022b9a43f70d2e5a2df7427f29088b6b191.1920x1080.jpg",
@@ -669,7 +679,8 @@ const games = [
       },
     },
     pictures: {
-      banner: "https://cdn.cloudflare.steamstatic.com/steam/apps/578080/ss_f148e1cd44da2972d1b61da1e12b7b3587c1f6a3.600x338.jpg",
+      banner:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/578080/ss_f148e1cd44da2972d1b61da1e12b7b3587c1f6a3.600x338.jpg",
       original: [
         "https://cdn.cloudflare.steamstatic.com/steam/apps/578080/ss_f148e1cd44da2972d1b61da1e12b7b3587c1f6a3.1920x1080.jpg",
         "https://cdn.cloudflare.steamstatic.com/steam/apps/578080/ss_c2456a0981b61eca4e84d3ff62fff6c78d61a6d0.1920x1080.jpg",
@@ -747,7 +758,8 @@ const games = [
       },
     },
     pictures: {
-      banner: "https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_c88170bed9bf8690963323d20e3f9e836cb9aed9.600x338.jpg",
+      banner:
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_c88170bed9bf8690963323d20e3f9e836cb9aed9.600x338.jpg",
       original: [
         "https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_c88170bed9bf8690963323d20e3f9e836cb9aed9.1920x1080.jpg",
         "https://cdn.cloudflare.steamstatic.com/steam/apps/739630/ss_f0377c02897de8831a5f032f13a6dc0f994516d5.1920x1080.jpg",

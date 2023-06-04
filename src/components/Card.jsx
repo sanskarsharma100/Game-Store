@@ -48,7 +48,7 @@ const Card = ({ game, toggleFavourite }) => {
         boxShadow: "0 0 10px hsl(0, 0%, 20%)",
       }}
       whileTap={{ scale: 1.012 }}
-      className="rounded-lg bg-darkBg2 active:scale-150"
+      className="w-full rounded-lg bg-darkBg2 active:scale-150"
     >
       <figure>
         <img
