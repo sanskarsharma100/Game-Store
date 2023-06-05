@@ -5,10 +5,10 @@ export default {
     extend: {
       fontSize: {
         dynamic: "clamp(1rem, 5vw, 1.115rem)",
+        dynamicHeading: "clamp(1.5rem, 8vw, 3rem)",
+        dynamicText: "clamp(0.8rem, 3vw, 1rem)",
       },
       backgroundImage: {
-        // homeGradient:
-        //   "linear-gradient(-45deg, rgba(1,0,0,0.8548669467787114) 16%, rgba(0,0,0,1) 100%)",
         blackGradient:
           "linear-gradient(-45deg, #000000, #080808, #101010, #151515, #1a1a1a);",
       },

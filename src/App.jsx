@@ -10,6 +10,7 @@ import { MainContext } from "./Context/MainContext";
 import GameDetail from "./Pages/GameDetail/GameDetail";
 import Footer from "./components/Footer";
 import Intro from "./Pages/Intro";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const [gamesList, setGamesList] = useState(games);
@@ -29,42 +30,44 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className="bg-darkBg">
+      <main className="bg-blackGradient">
         <div
           className={`${
             !isMenuOpen && `hidden`
           } fixed z-30 min-h-screen w-screen bg-semiDarker xs:hidden`}
           onClick={toggleMenu}
         ></div>
-        <Routes>
-          <Route path="/" element={<Intro />} />
-          <Route
-            exact
-            path="/store"
-            element={
-              <Home gamesList={gamesList} toggleFavourite={toggleFavourite} />
-            }
-          />
-          <Route
-            path="/store/:id"
-            element={
-              <GameDetail
-                gamesList={gamesList}
-                toggleFavourite={toggleFavourite}
-              />
-            }
-          />
-          <Route
-            path="/wishlist"
-            element={
-              <Wishlist
-                gamesList={gamesList}
-                toggleFavourite={toggleFavourite}
-              />
-            }
-          />
-          <Route path="/cart" element={<Cart gamesList={gamesList} />} />
-        </Routes>
+        <AnimatePresence>
+          <Routes>
+            <Route path="/" element={<Intro />} />
+            <Route
+              exact
+              path="/store"
+              element={
+                <Home gamesList={gamesList} toggleFavourite={toggleFavourite} />
+              }
+            />
+            <Route
+              path="/store/:id"
+              element={
+                <GameDetail
+                  gamesList={gamesList}
+                  toggleFavourite={toggleFavourite}
+                />
+              }
+            />
+            <Route
+              path="/wishlist"
+              element={
+                <Wishlist
+                  gamesList={gamesList}
+                  toggleFavourite={toggleFavourite}
+                />
+              }
+            />
+            <Route path="/cart" element={<Cart gamesList={gamesList} />} />
+          </Routes>
+        </AnimatePresence>
       </main>
       <Footer />
     </>

@@ -6,6 +6,7 @@ import { useIsSmall } from "../Utils/constants";
 import { Link } from "react-router-dom";
 import SortBy from "../components/SortBy";
 import Categories from "./../components/Categories";
+import AnimatedPage from "./../components/AnimatedPage";
 
 function Home({ gamesList, toggleFavourite }) {
   const isSmall = useIsSmall();
@@ -62,36 +63,38 @@ function Home({ gamesList, toggleFavourite }) {
   };
 
   return (
-    <div className="relative min-h-screen w-full gap-2 bg-blackGradient px-4 py-2 pb-20 text-lightText xs:flex xs:justify-evenly">
-      {!isSmall && (
-        <aside className="scrollbar-hidden sticky top-16 mr-4 mt-8 h-full min-w-fit overflow-y-scroll sm:pr-2">
-          <Categories textEffect={textEffect} />
-        </aside>
-      )}
-      <div>
-        <h1 className="mb-2 font-heading text-4xl font-black xs:text-5xl ss:text-6xl sm:text-7xl">
-          {selectedGenre || "All Games"}
-        </h1>
-        <SortBy
-          sortBy={sortBy}
-          sortByValues={sortByValues}
-          showSortByMenu={showSortByMenu}
-          handleSortBy={handleSortBy}
-          toggleSortByMenu={toggleSortByMenu}
-        />
-        {!gamesCards.length ? (
-          <div className="flex w-full justify-center p-10">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]">
-              <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
-            </div>
-          </div>
-        ) : (
-          <div className="grid items-center gap-4 overflow-visible font-content ss:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {gamesCards}
-          </div>
+    <AnimatedPage>
+      <div className="relative min-h-screen w-full gap-2 px-4 py-2 pb-20 text-lightText xs:flex xs:justify-evenly">
+        {!isSmall && (
+          <aside className="scrollbar-hidden sticky top-16 mr-4 mt-8 h-full min-w-fit overflow-y-scroll sm:pr-2">
+            <Categories textEffect={textEffect} />
+          </aside>
         )}
+        <div>
+          <h1 className="mb-2 font-heading text-4xl font-black xs:text-5xl ss:text-6xl sm:text-7xl">
+            {selectedGenre || "All Games"}
+          </h1>
+          <SortBy
+            sortBy={sortBy}
+            sortByValues={sortByValues}
+            showSortByMenu={showSortByMenu}
+            handleSortBy={handleSortBy}
+            toggleSortByMenu={toggleSortByMenu}
+          />
+          {!gamesCards.length ? (
+            <div className="flex w-full justify-center p-10">
+              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]">
+                <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+              </div>
+            </div>
+          ) : (
+            <div className="grid items-center gap-4 overflow-visible font-content ss:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              {gamesCards}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </AnimatedPage>
   );
 }
 

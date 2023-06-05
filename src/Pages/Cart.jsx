@@ -4,6 +4,7 @@ import { MainContext } from "../Context/MainContext";
 import { useContext } from "react";
 import cross from "../assets/cross.svg";
 import { numberToRupees } from "../Utils/utils";
+import AnimatedPage from "./../components/AnimatedPage";
 
 function Cart({ gamesList }) {
   const { cart, addToCart, total } = useContext(MainContext);
@@ -41,37 +42,39 @@ function Cart({ gamesList }) {
   });
 
   return (
-    <div className="bg-blackGradient pb-20">
-      <div
-        className={`m-auto min-h-screen p-4 text-lightText ${
-          cart.length ? "max-w-screen-sm" : ""
-        }`}
-      >
-        <div className="flex gap-2">
-          <h1 className="mb-4 font-heading text-5xl font-black">Cart</h1>
-          <img src={cartImg} alt="cart.svg" className="h-12" />
+    <AnimatedPage>
+      <div className="pb-20">
+        <div
+          className={`m-auto min-h-screen p-4 text-lightText ${
+            cart.length ? "max-w-screen-sm" : ""
+          }`}
+        >
+          <div className="flex gap-2">
+            <h1 className="mb-4 font-heading text-5xl font-black">Cart</h1>
+            <img src={cartImg} alt="cart.svg" className="h-12" />
+          </div>
+          {!cart.length ? (
+            <h2 className="text-center text-3xl font-bold">
+              No Games in the cart
+            </h2>
+          ) : (
+            <>
+              <section className="flex-col">{cartItems}</section>
+              <div className="mt-4 flex justify-between border-t-2 p-2">
+                <p>Total:</p>
+                <p>{numberToRupees(total) + " (" + cart.length + ")"}</p>
+              </div>
+              <button
+                className="mt-4 w-full border border-darkHover p-2 font-heading text-xl font-bold text-darkHover duration-300 hover:bg-darkHover hover:text-darkBg2"
+                role="button"
+              >
+                Place Order
+              </button>
+            </>
+          )}
         </div>
-        {!cart.length ? (
-          <h2 className="text-center text-3xl font-bold">
-            No Games in the cart
-          </h2>
-        ) : (
-          <>
-            <section className="flex-col">{cartItems}</section>
-            <div className="mt-4 flex justify-between border-t-2 p-2">
-              <p>Total:</p>
-              <p>{numberToRupees(total) + " (" + cart.length + ")"}</p>
-            </div>
-            <button
-              className="mt-4 w-full border border-darkHover p-2 font-heading text-xl font-bold text-darkHover duration-300 hover:bg-darkHover hover:text-darkBg2"
-              role="button"
-            >
-              Place Order
-            </button>
-          </>
-        )}
       </div>
-    </div>
+    </AnimatedPage>
   );
 }
 Cart.propTypes = {
