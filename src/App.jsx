@@ -11,6 +11,7 @@ import GameDetail from "./Pages/GameDetail/GameDetail";
 import Footer from "./components/Footer";
 import About from "./Pages/About";
 import { AnimatePresence } from "framer-motion";
+import RedirectToAbout from "./Pages/RedirectToAbout";
 
 function App() {
   const [gamesList, setGamesList] = useState(games);
@@ -40,6 +41,7 @@ function App() {
         ></div>
         <AnimatePresence mode="wait">
           <Routes key={location.pathname} location={location}>
+            <Route path="/" element={<RedirectToAbout />} />
             <Route path="/about" element={<About />} />
             <Route
               exact
