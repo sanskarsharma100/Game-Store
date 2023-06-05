@@ -5,10 +5,10 @@ import { useContext, useState } from "react";
 import { useIsSmall } from "../Utils/constants";
 import { Link } from "react-router-dom";
 import SortBy from "../components/SortBy";
-import Categories from "./../components/Categories";
-import AnimatedPage from "./../components/AnimatedPage";
+import Categories from "../components/Categories";
+import AnimatedPage from "../components/AnimatedPage";
 
-function Home({ gamesList, toggleFavourite }) {
+function Store({ gamesList, toggleFavourite }) {
   const isSmall = useIsSmall();
 
   const sortByValues = [
@@ -98,9 +98,9 @@ function Home({ gamesList, toggleFavourite }) {
   );
 }
 
-Home.propTypes = {
+Store.propTypes = {
   gamesList: PropTypes.arrayOf(PropTypes.object),
   toggleFavourite: PropTypes.func,
 };
 
-export default Home;
+export default Store;

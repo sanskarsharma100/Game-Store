@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import games from "./Utils/games";
-import Home from "./Pages/Home";
+import Store from "./Pages/Store";
 import Wishlist from "./Pages/Wishlist";
 import Cart from "./Pages/Cart";
 import Navbar from "./components/Navbar/Navbar";
@@ -9,7 +9,7 @@ import { useContext } from "react";
 import { MainContext } from "./Context/MainContext";
 import GameDetail from "./Pages/GameDetail/GameDetail";
 import Footer from "./components/Footer";
-import Intro from "./Pages/Intro";
+import About from "./Pages/About";
 import { AnimatePresence } from "framer-motion";
 
 function App() {
@@ -39,12 +39,15 @@ function App() {
         ></div>
         <AnimatePresence>
           <Routes>
-            <Route path="/" element={<Intro />} />
+            <Route path="/about" element={<About />} />
             <Route
               exact
               path="/store"
               element={
-                <Home gamesList={gamesList} toggleFavourite={toggleFavourite} />
+                <Store
+                  gamesList={gamesList}
+                  toggleFavourite={toggleFavourite}
+                />
               }
             />
             <Route

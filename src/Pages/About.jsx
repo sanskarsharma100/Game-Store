@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import reactLogo from "../assets/reactLogo.svg";
 import reactRouterLogo from "../assets/reactRouterLogo.svg";
 import tailwindLogo from "../assets/tailwindLogo.svg";
-import AnimatedPage from "./../components/AnimatedPage";
+import AnimatedPage from "../components/AnimatedPage";
 
-function Intro() {
+function About() {
   const frameworkLogos = [
     { logo: reactLogo, name: "ReactJS", alt: "React Logo" },
     { logo: reactRouterLogo, name: "React Router", alt: "React Router Logo" },
@@ -62,4 +62,4 @@ function Intro() {
   );
 }
 
-export default Intro;
+export default About;

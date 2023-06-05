@@ -21,7 +21,7 @@ const Card = ({ game, toggleFavourite }) => {
     }
   }
 
-  const homeEffect = {
+  const storeEffect = {
     menuOpened: {
       scale: 0.9,
       transition: {
@@ -40,7 +40,7 @@ const Card = ({ game, toggleFavourite }) => {
     <motion.section
       key={game.id}
       animate={isMenuOpen && isSmall ? "menuOpened" : "menuClosed"}
-      variants={homeEffect}
+      variants={storeEffect}
       whileHover={{
         scale: 1.02,
         cursor: "pointer",

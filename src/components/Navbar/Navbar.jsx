@@ -11,9 +11,10 @@ function Navbar() {
   const currLocation = useLocation();
 
   const links = [
-    { to: "store", name: "Home", id: "l1" },
-    { to: "wishlist", name: "Wishlist", id: "l2" },
-    { to: "cart", name: "Cart", id: "l3" },
+    { to: "about", name: "About", id: "l1" },
+    { to: "store", name: "Store", id: "l2" },
+    { to: "wishlist", name: "Wishlist", id: "l3" },
+    { to: "cart", name: "Cart", id: "l4" },
   ];
 
   return (
