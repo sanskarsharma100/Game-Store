@@ -3,6 +3,7 @@ import reactLogo from "../assets/reactLogo.svg";
 import reactRouterLogo from "../assets/reactRouterLogo.svg";
 import tailwindLogo from "../assets/tailwindLogo.svg";
 import AnimatedPage from "../components/AnimatedPage";
+import githubLogo from "../assets/githubLogo.svg";
 
 function About() {
   const frameworkLogos = [
@@ -40,20 +41,33 @@ function About() {
               </p>
             </article>
           </div>
-          <Link to="/store">
-            <button
-              role="button"
-              className="border border-neonPink px-5 py-3 font-heading text-dynamicText font-bold text-neonPink duration-500 hover:bg-neonPink hover:text-white"
+          <div className="flex w-full items-center gap-4">
+            <Link to="/store">
+              <button
+                role="button"
+                className="border border-neonPink px-5 py-3 font-heading text-dynamicText font-bold text-neonPink duration-500 hover:bg-neonPink hover:text-white"
+              >
+                OPEN STORE
+              </button>
+            </Link>
+            <Link
+              to="https://github.com/sanskarsharma100/Game-Store"
+              target="_blank"
             >
-              OPEN STORE
-            </button>
-          </Link>
+              <img
+                src={githubLogo}
+                alt="Github Logo"
+                role="button"
+                className="w-10"
+              />
+            </Link>
+          </div>
         </section>
         <section className="w-full max-w-4xl">
           <h2 className="mb-2 w-full text-xl font-semibold text-lightText">
             Frameworks used:
           </h2>
-          <div className="flex flex-wrap justify-between gap-4">
+          <div className="m-auto flex max-w-2xl flex-wrap justify-between gap-4">
             {frameworks}
           </div>
         </section>
