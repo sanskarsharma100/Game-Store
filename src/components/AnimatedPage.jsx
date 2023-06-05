@@ -8,14 +8,14 @@ const AnimatedPage = ({ children }) => {
       opacity: 1,
       x: "0%",
       transition: {
-        ease: [0.38, 0.62, 0.14, 1.2],
-        duration: 0.5,
+        ease: [0.38, 0.62, 0.14, 1],
+        duration: 0.4,
       },
     },
     exit: {
       opacity: 0,
-      display: "none",
       x: "100%",
+      transition: { duration: 0.2 },
     },
   };
 

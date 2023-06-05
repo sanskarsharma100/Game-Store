@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import games from "./Utils/games";
 import Store from "./Pages/Store";
 import Wishlist from "./Pages/Wishlist";
@@ -15,6 +15,7 @@ import { AnimatePresence } from "framer-motion";
 function App() {
   const [gamesList, setGamesList] = useState(games);
   const { isMenuOpen, toggleMenu } = useContext(MainContext);
+  const location = useLocation();
 
   function toggleFavourite(e) {
     e.preventDefault();
@@ -37,8 +38,8 @@ function App() {
           } fixed z-30 min-h-screen w-screen bg-semiDarker xs:hidden`}
           onClick={toggleMenu}
         ></div>
-        <AnimatePresence>
-          <Routes>
+        <AnimatePresence mode="wait">
+          <Routes key={location.pathname} location={location}>
             <Route path="/about" element={<About />} />
             <Route
               exact
