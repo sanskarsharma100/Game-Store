@@ -10,8 +10,6 @@ function Menubar({ links, showCategory }) {
   const { isMenuOpen, setIsMenuOpen } = useContext(MainContext);
   const isSmall = useIsSmall();
 
-  console.log("isMenuOpen", isMenuOpen);
-
   useEffect(() => {
     if (!isSmall) {
       setIsMenuOpen(true);
