@@ -35,11 +35,11 @@ function SortBy({
   ));
 
   return (
-    <div className="font-content mb-4 flex max-w-xs items-center gap-2">
+    <div className="mb-4 flex max-w-xs items-center gap-2 font-content">
       <span className="whitespace-nowrap">Sort By:</span>
       <div className="relative w-full">
         <button
-          className="w-full rounded-lg bg-darkBg2 p-[3%] text-left"
+          className="w-full rounded-lg border border-lightText bg-darkBg2 p-[3%] text-left"
           onClick={toggleSortByMenu}
           role="button"
         >

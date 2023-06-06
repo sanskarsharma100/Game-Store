@@ -10,6 +10,8 @@ function Menubar({ links, showCategory }) {
   const { isMenuOpen, setIsMenuOpen } = useContext(MainContext);
   const isSmall = useIsSmall();
 
+  console.log("isMenuOpen", isMenuOpen);
+
   useEffect(() => {
     if (!isSmall) {
       setIsMenuOpen(true);
@@ -24,8 +26,11 @@ function Menubar({ links, showCategory }) {
       right: "0%",
       display: "block",
       transition: {
-        ease: [0, 1.1, 0, 1.05],
-        duration: 0.5,
+        ease: [0.52, 0.84, 0.4, 1.19],
+        duration: 0.4,
+      },
+      transitionEnd: {
+        display: "block",
       },
     },
     closed: {
@@ -54,7 +59,7 @@ function Menubar({ links, showCategory }) {
 
   const ULlist = {
     open: {
-      transition: { staggerChildren: 0.07, delayChildren: 0.3 },
+      transition: { staggerChildren: 0.07, delayChildren: 0.9 },
     },
     closed: {
       transition: { staggerChildren: 0.05, staggerDirection: -1 },
@@ -85,14 +90,14 @@ function Menubar({ links, showCategory }) {
       whileTap="textTap"
       animate={isMenuOpen ? "open" : "closed"}
       variants={menuItemEffects}
-      className="m-2 text-center hover:text-darkHover"
+      className="m-0.5 text-center hover:text-darkHover ss:m-2"
     >
       <NavLink
         to={`/${links.to}`}
         end
         className={({ isActive }) => (isActive ? "activeRoute" : "")}
       >
-        <motion.p variants={textEffect} className="p-2">
+        <motion.p variants={textEffect} className="p-1">
           {links.name}
         </motion.p>
       </NavLink>
@@ -103,12 +108,12 @@ function Menubar({ links, showCategory }) {
     <motion.div
       animate={isMenuOpen && isSmall ? "open" : "closed"}
       variants={isSmall ? menuSlider : ""}
-      className="scrollbar-hidden absolute z-[5000] h-[93vh] w-2/3 flex-col gap-5 overflow-y-scroll bg-darkBg pb-3 backdrop-blur xs:static xs:h-fit xs:w-fit xs:pb-0"
+      className="scrollbar-hidden absolute z-[5000] h-[93vh] w-2/3 flex-col gap-5 overflow-y-scroll bg-darkBg pb-3 pt-1 backdrop-blur xs:static xs:my-auto xs:ml-auto xs:h-fit xs:w-fit xs:pb-0 xs:pt-0"
     >
       <motion.ul
         animate={isMenuOpen ? "open" : "closed"}
         variants={ULlist}
-        className="font-content text-lg font-bold text-lightText xs:flex xs:align-middle"
+        className="m-auto font-content text-lg font-bold text-lightText xs:flex xs:justify-center xs:align-middle"
       >
         {navLinks}
       </motion.ul>

@@ -5,6 +5,8 @@ import { useContext } from "react";
 import cross from "../assets/cross.svg";
 import { numberToRupees } from "../Utils/utils";
 import AnimatedPage from "./../components/AnimatedPage";
+import { Link } from "react-router-dom";
+import emptyCart from "../assets/emptyCart.svg";
 
 function Cart({ gamesList }) {
   const { cart, addToCart, total } = useContext(MainContext);
@@ -16,25 +18,29 @@ function Cart({ gamesList }) {
           key={game.id}
           className="mb-2 flex items-center justify-between gap-4 rounded-lg bg-darkBg2 p-2"
         >
-          <div className="flex items-center gap-2">
-            <figure>
-              <img
-                src={game.pictures.banner}
-                alt="Picture of Game"
-                className="hidden max-w-[10rem] xs:block"
-                loading="lazy"
-              />
-            </figure>
-            <p>{game.name}</p>
-          </div>
+          <Link to={`/store/${game.id}`}>
+            <div className="flex items-center gap-2">
+              <figure>
+                <img
+                  src={game.pictures.banner}
+                  alt="Picture of Game"
+                  className="hidden max-w-[10rem] xs:block"
+                  loading="lazy"
+                />
+              </figure>
+              <p>{game.name}</p>
+            </div>
+          </Link>
           <div className="flex items-center gap-2">
             <p>{numberToRupees(game.price)}</p>
-            <img
-              src={cross}
-              alt="crossImg"
-              className="w-8 rounded-lg p-2 duration-300 hover:cursor-pointer hover:bg-worst"
-              onClick={() => addToCart(game.id, game.price)}
-            />
+            <button className="w-8 rounded-lg bg-worst p-2 duration-300">
+              <img
+                src={cross}
+                alt="crossImg"
+                className="w-full"
+                onClick={() => addToCart(game.id, game.price)}
+              />
+            </button>
           </div>
         </div>
       );
@@ -54,9 +60,16 @@ function Cart({ gamesList }) {
             <img src={cartImg} alt="cart.svg" className="h-12" />
           </div>
           {!cart.length ? (
-            <h2 className="text-center text-3xl font-bold">
-              No Games in the cart
-            </h2>
+            <div className="m-auto flex flex-col items-center gap-4">
+              <img
+                src={emptyCart}
+                alt="Empty Cart"
+                className="w-20 xs:w-40 ss:w-auto"
+              />
+              <h2 className="text-center text-dynamicHeading2 font-semibold">
+                No Games in the cart
+              </h2>
+            </div>
           ) : (
             <>
               <section className="flex-col">{cartItems}</section>

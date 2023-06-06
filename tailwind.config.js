@@ -6,6 +6,7 @@ export default {
       fontSize: {
         dynamic: "clamp(1rem, 5vw, 1.115rem)",
         dynamicHeading: "clamp(1.5rem, 8vw, 3rem)",
+        dynamicHeading2: "clamp(1.5rem, 8vw, 2.25rem)",
         dynamicText: "clamp(0.8rem, 3vw, 1rem)",
       },
       backgroundImage: {

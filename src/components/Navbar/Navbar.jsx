@@ -20,7 +20,7 @@ function Navbar() {
   return (
     <header className="sticky top-0 z-50">
       <nav className="w-full bg-darkBg xs:px-4">
-        <div className="relative m-auto px-2 xs:flex xs:justify-between">
+        <div className="relative m-auto xs:flex xs:justify-between">
           <div className="relative z-[9999] flex h-16 justify-center">
             <div className="m-auto" role="banner">
               <Link to={`/store`}>

@@ -70,7 +70,7 @@ function Store({ gamesList, toggleFavourite }) {
             <Categories textEffect={textEffect} />
           </aside>
         )}
-        <div>
+        <div className="w-full">
           <h1 className="mb-2 font-heading text-4xl font-black xs:text-5xl ss:text-6xl sm:text-7xl">
             {selectedGenre || "All Games"}
           </h1>
@@ -88,7 +88,7 @@ function Store({ gamesList, toggleFavourite }) {
               </div>
             </div>
           ) : (
-            <div className="grid items-center gap-4 overflow-visible font-content ss:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <div className="grid-container items-center overflow-visible font-content">
               {gamesCards}
             </div>
           )}

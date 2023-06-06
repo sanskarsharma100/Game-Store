@@ -14,12 +14,15 @@ function Categories({ ULlist, menuItemEffects, textEffect }) {
       whileTap="textTap"
       animate={isMenuOpen ? "open" : "closed"}
       variants={menuItemEffects}
-      className={`m-2 text-center hover:text-darkHover xs:m-0 xs:text-left ${
+      className={`m-1.5 text-center hover:text-darkHover xs:m-0 xs:text-left ${
         genres[item] == selectedGenre && `selected`
       }`}
       onClick={() => setGenre(genres[item])}
     >
-      <motion.p variants={textEffect} className="p-2 xs:mb-1 xs:px-2 xs:py-0.5">
+      <motion.p
+        variants={textEffect}
+        className="p-0.5 xs:mb-1 xs:px-2 xs:py-0.5"
+      >
         {genres[item]}
       </motion.p>
     </motion.li>
@@ -27,13 +30,13 @@ function Categories({ ULlist, menuItemEffects, textEffect }) {
 
   return (
     <>
-      <h2 className="mb-2 border-b-2 pb-1 text-center font-heading text-2xl font-extrabold text-lightText xs:font-bold sm:mb-4 sm:text-3xl">
+      <h2 className="border-b-2 pb-1 text-center font-heading text-2xl font-extrabold text-lightText xs:font-bold sm:mb-4 sm:text-3xl">
         Categories
       </h2>
       <motion.ul
         animate={isMenuOpen ? "open" : "closed"}
         variants={ULlist}
-        className="font-content overflow-hidden text-lg font-bold text-lightText xs:text-base xs:font-medium sm:text-lg"
+        className="overflow-hidden font-content text-lg font-bold text-lightText xs:text-base xs:font-medium sm:text-lg"
       >
         {categories}
       </motion.ul>
