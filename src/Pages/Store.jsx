@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import SortBy from "../components/SortBy";
 import Categories from "../components/Categories";
 import AnimatedPage from "../components/AnimatedPage";
+import LoaderAnim from "./../components/LoaderAnim";
 
 function Store({ gamesList, toggleFavourite }) {
   const isSmall = useIsSmall();
@@ -83,9 +84,7 @@ function Store({ gamesList, toggleFavourite }) {
           />
           {!gamesCards.length ? (
             <div className="flex w-full justify-center p-10">
-              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]">
-                <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
-              </div>
+              <LoaderAnim />
             </div>
           ) : (
             <div className="grid-container items-center overflow-visible font-content">

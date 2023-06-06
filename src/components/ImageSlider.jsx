@@ -7,12 +7,14 @@ function ImageSlider({ pictures }) {
   const imgScroll = useRef(null);
 
   function previousSlide() {
-    const newIndex = currentIndex == 0 ? pictures.compressed.length - 1 : currentIndex - 1;
+    const newIndex =
+      currentIndex == 0 ? pictures.compressed.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
     scrollToIndex(newIndex);
   }
   function nextSlide() {
-    const newIndex = currentIndex == pictures.compressed.length - 1 ? 0 : currentIndex + 1;
+    const newIndex =
+      currentIndex == pictures.compressed.length - 1 ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
     scrollToIndex(newIndex);
   }
@@ -100,7 +102,7 @@ function ImageSlider({ pictures }) {
 }
 
 ImageSlider.propTypes = {
-  pictures: PropTypes.object
+  pictures: PropTypes.object,
 };
 
 export default ImageSlider;

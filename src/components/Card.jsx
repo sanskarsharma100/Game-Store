@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MainContext } from "../Context/MainContext";
 import heartEmpty from "../assets/heartEmpty.svg";
 import heartFilled from "../assets/heartFilled.svg";
 import { useIsSmall } from "./../Utils/constants";
 import { numberToRupees } from "../Utils/utils";
+import LoaderAnim from "./LoaderAnim";
 
 const Card = ({ game, toggleFavourite }) => {
   const { isMenuOpen, cart, addToCart } = useContext(MainContext);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const isSmall = useIsSmall();
 
   function getRatingColor() {
@@ -50,12 +52,20 @@ const Card = ({ game, toggleFavourite }) => {
       whileTap={{ scale: 1.012 }}
       className="w-full rounded-lg bg-darkBg2 active:scale-150"
     >
+      {!isImageLoaded && (
+        <div className="flex h-24 items-center justify-center">
+          <LoaderAnim />
+        </div>
+      )}
       <figure>
         <img
           src={game.pictures.banner}
           alt="Game Cover photo"
           className="rounded-t-lg"
           loading="lazy"
+          onLoad={() => {
+            setIsImageLoaded(true);
+          }}
         />
       </figure>
       <div className="mt-2 p-2 text-lightText">
