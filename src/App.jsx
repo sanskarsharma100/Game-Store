@@ -11,7 +11,7 @@ import GameDetail from "./Pages/GameDetail/GameDetail";
 import Footer from "./components/Footer";
 import About from "./Pages/About";
 import { AnimatePresence } from "framer-motion";
-import RedirectToAbout from "./Pages/RedirectToAbout";
+import RedirectToAbout from "./components/RedirectToAbout";
 
 function App() {
   const [gamesList, setGamesList] = useState(games);
