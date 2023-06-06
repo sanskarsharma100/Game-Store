@@ -83,12 +83,12 @@ const Card = ({ game, toggleFavourite }) => {
           <div className="flex flex-wrap items-center justify-between">
             <span>{numberToRupees(game.price)}</span>
             <div className="flex items-center gap-1">
-              <button onClick={toggleFavourite} role="button">
+              <button className="m-2" onClick={toggleFavourite} role="button">
                 <img
                   src={game.isFavorite ? heartFilled : heartEmpty}
                   alt="Wishlist Icon"
                   id={game.id}
-                  className={`m-2 w-6 select-none duration-300 ${
+                  className={`w-8 select-none duration-300 ${
                     game.isFavorite || `hover:drop-shadow-4xl`
                   }`}
                 />
