@@ -87,7 +87,7 @@ function Store({ gamesList, toggleFavourite }) {
               <LoaderAnim />
             </div>
           ) : (
-            <div className="grid-container items-center overflow-visible font-content">
+            <div className="grid items-center gap-4 overflow-visible font-content ss:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {gamesCards}
             </div>
           )}
