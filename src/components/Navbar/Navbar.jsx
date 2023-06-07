@@ -23,7 +23,7 @@ function Navbar() {
         <div className="relative m-auto xs:flex xs:justify-between">
           <div className="relative z-[9999] flex h-16 justify-center">
             <div className="m-auto" role="banner">
-              <Link to={`/store`}>
+              <Link to={`/about`}>
                 <img
                   src={StoreLogo}
                   alt="Game Store Logo"

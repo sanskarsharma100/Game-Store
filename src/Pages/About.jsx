@@ -65,7 +65,7 @@ function About() {
         </section>
         <section className="w-full max-w-4xl">
           <h2 className="mb-2 w-full text-xl font-semibold text-lightText">
-            Frameworks used:
+            Tech-stack used:
           </h2>
           <div className="m-auto flex max-w-2xl flex-wrap justify-between gap-4">
             {frameworks}

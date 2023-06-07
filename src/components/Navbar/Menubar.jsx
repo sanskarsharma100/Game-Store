@@ -3,15 +3,17 @@ import { motion } from "framer-motion";
 import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { MainContext } from "../../Context/MainContext";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { useIsSmall } from "./../../Utils/constants";
 import Categories from "./../Categories";
 
 function Menubar({ links, showCategory }) {
   const { isMenuOpen, setIsMenuOpen } = useContext(MainContext);
   const isSmall = useIsSmall();
+  // const isSmall = useMediaQuery("(max-width: 480px)");
 
   useEffect(() => {
-    if (!isSmall) {
+    if (!window.matchMedia("(max-width: 480px)").matches) {
       setIsMenuOpen(true);
     } else {
       setIsMenuOpen(false);
@@ -104,8 +106,9 @@ function Menubar({ links, showCategory }) {
 
   return (
     <motion.div
-      animate={isMenuOpen && isSmall ? "open" : "closed"}
-      variants={isSmall ? menuSlider : ""}
+      initial={false}
+      animate={isMenuOpen ? "open" : "closed"}
+      variants={menuSlider}
       className="scrollbar-hidden absolute z-[5000] h-[93vh] w-2/3 flex-col gap-5 overflow-x-hidden overflow-y-scroll bg-darkBg pb-3 pt-1 backdrop-blur xs:static xs:my-auto xs:ml-auto xs:h-fit xs:w-fit xs:pb-0 xs:pt-0"
     >
       <motion.ul
