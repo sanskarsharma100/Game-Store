@@ -6,8 +6,10 @@ function GameRequirements({ req }) {
     {
       return (
         req[item] && (
-          <li key={item}>
-            <span className="text-base font-bold xs:text-lg">{specs[i]}: </span>
+          <li key={item} className="text-darkText">
+            <span className="text-base font-semibold text-lightText xs:text-lg">
+              {specs[i]}:{" "}
+            </span>
             {req[item]}
           </li>
         )
