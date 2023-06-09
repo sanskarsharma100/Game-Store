@@ -6,6 +6,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+#root {
+  overflow: hidden;
+}
+
 @layer components {
   body::-webkit-scrollbar {
     width: 0.5em;
