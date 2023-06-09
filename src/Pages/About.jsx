@@ -42,13 +42,12 @@ function About() {
             </article>
           </div>
           <div className="flex w-full items-center gap-4">
-            <Link to="/store">
-              <button
-                role="button"
-                className="border border-neonPink px-5 py-3 font-heading text-dynamicText font-bold text-neonPink duration-500 hover:bg-neonPink hover:text-white"
-              >
-                OPEN STORE
-              </button>
+            <Link
+              to="/store"
+              role="button"
+              className="border border-neonPink px-5 py-3 font-heading text-dynamicText font-bold text-neonPink duration-500 hover:bg-neonPink hover:text-white"
+            >
+              OPEN STORE
             </Link>
             <Link
               to="https://github.com/sanskarsharma100/Game-Store"

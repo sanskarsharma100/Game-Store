@@ -39,7 +39,7 @@ function App() {
           } fixed z-30 min-h-screen w-screen bg-semiDarker xs:hidden`}
           onClick={toggleMenu}
         ></div>
-        <AnimatePresence mode="wait">
+        <AnimatePresence initial={false} mode="wait">
           <Routes key={location.pathname} location={location}>
             <Route path="/" element={<RedirectToAbout />} />
             <Route path="/about" element={<About />} />
